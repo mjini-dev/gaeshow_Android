@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.community.viewmodel.BoardWriteViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/svPost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".view.community.board.BoardWriteFragment">
+
+                <TextView
+                    android:id="@+id/tvBoardWrite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/board_write_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/vWrite"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorWhite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBoardWrite" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/title_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvBoardWrite"
+                    app:layout_constraintTop_toBottomOf="@+id/vWrite" />
+
+
+                <EditText
+                    android:id="@+id/etTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="14dp"
+                    android:background="@drawable/shape_textview"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:hint="@string/title_hint_str"
+                    android:padding="9dp"
+                    android:text="@{vm.isPostModify ? vm.postDetails.title : @string/empty_str}"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+                <TextView
+                    android:id="@+id/tvContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/content_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/etTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+
+                <HorizontalScrollView
+                    android:id="@+id/editorMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="14dp"
+                    android:background="@android:color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvContent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvContent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_undo"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/undo" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_redo"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/redo" />-->
+
+                        <ImageButton
+                            android:id="@+id/action_bold"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/bold" />
+
+                        <ImageButton
+                            android:id="@+id/action_italic"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/italic" />
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_subscript"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/subscript" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_superscript"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/superscript" />-->
+
+                        <ImageButton
+                            android:id="@+id/action_strikethrough"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/strikethrough" />
+
+                        <ImageButton
+                            android:id="@+id/action_underline"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/underline" />
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_heading1"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/h1" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_heading2"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/h2" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_heading3"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/h3" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_heading4"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/h4" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_heading5"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/h5" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_heading6"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/h6" />-->
+
+                        <ImageButton
+                            android:id="@+id/action_txt_color"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/txt_color" />
+
+                        <ImageButton
+                            android:id="@+id/action_bg_color"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/bg_color" />
+
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_indent"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/indent" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_outdent"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/outdent" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_align_left"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/justify_left" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_align_center"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/justify_center" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_align_right"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/justify_right" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_insert_bullets"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/bullets" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_insert_numbers"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/numbers" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_blockquote"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/blockquote" />-->
+
+                        <ImageButton
+                            android:id="@+id/action_insert_image"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/insert_image" />
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_insert_audio"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/music" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_insert_video"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/video" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_insert_youtube"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/youtube" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_insert_link"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@drawable/insert_link" />-->
+
+                        <!--                <ImageButton-->
+                        <!--                    android:id="@+id/action_insert_checkbox"-->
+                        <!--                    android:layout_width="48dp"-->
+                        <!--                    android:layout_height="48dp"-->
+                        <!--                    android:background="@null"-->
+                        <!--                    android:contentDescription="@null"-->
+                        <!--                    android:src="@android:drawable/checkbox_on_background" />-->
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <jp.wasabeef.richeditor.RichEditor
+                    android:id="@+id/editorContent"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/colorWhite"
+                    android:gravity="start"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/vContent"
+                    app:layout_constraintEnd_toEndOf="@+id/etTitle"
+                    app:layout_constraintStart_toStartOf="@+id/tvContent"
+                    app:layout_constraintTop_toBottomOf="@+id/editorMenu"
+                    app:setContent="@{vm.isPostModify ? vm.postDetails.content : @string/empty_str}" />
+
+                <View
+                    android:id="@+id/vContent"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="128dp"
+                    android:background="@color/colorWhite"
+                    app:layout_constraintBottom_toTopOf="@+id/tvTagging"
+                    app:layout_constraintEnd_toEndOf="@+id/editorContent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/editorContent"
+                    app:layout_constraintTop_toBottomOf="@+id/editorContent" />
+
+                <TextView
+                    android:id="@+id/tvTagging"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/tagging_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvContent"
+                    app:layout_constraintTop_toBottomOf="@+id/vContent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTag"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="32dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                    app:layout_constraintBottom_toTopOf="@+id/btnAddPost"
+                    app:layout_constraintEnd_toEndOf="@+id/vContent"
+                    app:layout_constraintStart_toStartOf="@+id/tvTagging"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTagging"
+                    app:setTagAddItem="@{vm.etcTags}"
+                    tools:listitem="@layout/item_add_tag_board" />
+
+                <Button
+                    android:id="@+id/btnAddPost"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@color/colorBlack"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:minHeight="0dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="@{vm.isPostModify ? @string/modify_str : @string/post_up_str}"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cameraView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/btnCameraCapture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="30dp"
+                android:elevation="2dp"
+                android:scaleType="fitCenter"
+                android:text="Take Photo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <androidx.camera.view.PreviewView
+                android:id="@+id/viewFinder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

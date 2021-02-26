@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.mypage.MoreFragmentViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.mypage.MoreFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".view.mypage.MoreFragment">
+
+
+            <!--    로그인 안한 경우 -->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/unSignin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <Button
+                    android:id="@+id/btnSignin"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_stroke_no"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/signin_signup_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="22sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tvSigninInfo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@string/signin_info_str"
+                    android:textColor="@color/colorGray"
+                    android:textSize="15sp"
+                    app:layout_constraintStart_toStartOf="@+id/btnSignin"
+                    app:layout_constraintTop_toBottomOf="@+id/btnSignin" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <!--    로그인 한 경우-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/onSignin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/unSignin">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/default_img_3x"
+                    app:civ_border_color="@color/colorEdge"
+                    app:civ_border_width="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:setMyProfileImage="@{vm.userProfile.profile_image_url}" />
+
+
+                <TextView
+                    android:id="@+id/tvNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="13dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@{vm.userProfile.profile_nickname}"
+                    android:textSize="17sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/ivProfile"
+                    tools:text="@string/nickname_str" />
+
+                <TextView
+                    android:id="@+id/tvProfileEmail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@{vm.userProfile.profile_email}"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNickname"
+                    tools:text="@string/email_str" />
+
+                <TextView
+                    android:id="@+id/tvJobField"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:gravity="end"
+                    android:text="@{vm.userProfile.job_field}"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvSlash1"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProfileEmail"
+                    tools:text="@string/job_field_str" />
+
+                <TextView
+                    android:id="@+id/tvSlash1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:text="@string/slash_str"
+                    android:textSize="13sp"
+                    android:visibility="@{vm.userProfile.profile_gender == null || vm.userProfile.job_field==null? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvJobField"
+                    app:layout_constraintEnd_toStartOf="@+id/tvGender"
+                    app:layout_constraintStart_toEndOf="@+id/tvJobField"
+                    app:layout_constraintTop_toTopOf="@+id/tvJobField" />
+
+                <TextView
+                    android:id="@+id/tvGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:text="@{vm.userProfile.profile_gender}"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSlash1"
+                    app:layout_constraintEnd_toStartOf="@+id/tvSlash2"
+                    app:layout_constraintStart_toEndOf="@+id/tvSlash1"
+                    app:layout_constraintTop_toTopOf="@+id/tvSlash1"
+                    tools:text="@string/gender_str" />
+
+                <TextView
+                    android:id="@+id/tvSlash2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:text="@string/slash_str"
+                    android:textSize="13sp"
+                    android:visibility="@{vm.userProfile.profile_gender == null || vm.userProfile.experience_years==null? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvGender"
+                    app:layout_constraintEnd_toStartOf="@+id/tvExperienceYears"
+                    app:layout_constraintStart_toEndOf="@+id/tvGender"
+                    app:layout_constraintTop_toTopOf="@+id/tvGender" />
+
+                <TextView
+                    android:id="@+id/tvExperienceYears"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:text="@{vm.userProfile.experience_years == Integer.toString(0)? @string/junior_str : vm.userProfile.experience_years}"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSlash2"
+                    app:layout_constraintEnd_toStartOf="@+id/tvUnitYear"
+                    app:layout_constraintStart_toEndOf="@+id/tvSlash2"
+                    app:layout_constraintTop_toTopOf="@+id/tvSlash2"
+                    tools:text="@string/experience_str" />
+
+                <TextView
+                    android:id="@+id/tvUnitYear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:text="@string/unit_year_str"
+                    android:textSize="13sp"
+                    android:visibility="gone"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvExperienceYears"
+                    app:layout_constraintEnd_toStartOf="@+id/tvSlash3"
+                    app:layout_constraintStart_toEndOf="@+id/tvExperienceYears"
+                    app:layout_constraintTop_toTopOf="@+id/tvExperienceYears" />
+
+                <TextView
+                    android:id="@+id/tvSlash3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginEnd="1dp"
+                    android:layout_marginRight="1dp"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:text="@string/slash_str"
+                    android:textSize="13sp"
+                    android:visibility="@{vm.userProfile.profile_gender == null || vm.userProfile.working_area == null ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvExperienceYears"
+                    app:layout_constraintEnd_toStartOf="@+id/tvWorkingArea"
+                    app:layout_constraintStart_toEndOf="@+id/tvUnitYear"
+                    app:layout_constraintTop_toTopOf="@+id/tvExperienceYears" />
+
+                <TextView
+                    android:id="@+id/tvWorkingArea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:gravity="start"
+                    android:text="@{vm.userProfile.working_area}"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvSlash3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/tvSlash3"
+                    app:layout_constraintTop_toTopOf="@+id/tvSlash3"
+                    tools:text="@string/working_area_str" />
+
+                <View
+                    android:id="@+id/vSignin"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@color/colorWhite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvJobField" />
+
+                <Button
+                    android:id="@+id/btnModifyUserInfo"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_stroke_bottom"
+                    android:fontFamily="@font/noto_sans_cjkkr_light"
+                    android:gravity="start"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/modify_user_info_str"
+                    android:textColor="@color/colorGray"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/vSignin" />
+
+                <Button
+                    android:id="@+id/btnMypage"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_stroke_bottom"
+                    android:fontFamily="@font/noto_sans_cjkkr_light"
+                    android:gravity="start"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/mypage_str"
+                    android:textColor="@color/colorGray"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@+id/vSignin"
+                    app:layout_constraintStart_toStartOf="@+id/vSignin"
+                    app:layout_constraintTop_toBottomOf="@+id/btnModifyUserInfo" />
+
+                <Button
+                    android:id="@+id/btnBookmark"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_stroke_bottom"
+                    android:fontFamily="@font/noto_sans_cjkkr_light"
+                    android:gravity="start"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/bookmark_str"
+                    android:textColor="@color/colorGray"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@+id/vSignin"
+                    app:layout_constraintStart_toStartOf="@+id/vSignin"
+                    app:layout_constraintTop_toBottomOf="@+id/btnMypage"/>
+
+                <Button
+                    android:id="@+id/btnPassword"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_stroke_bottom"
+                    android:fontFamily="@font/noto_sans_cjkkr_light"
+                    android:gravity="start"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:visibility="@{vm.isRegisteredTypeEmail ? View.VISIBLE : View.GONE}"
+                    android:text="@string/change_password_str"
+                    android:textColor="@color/colorGray"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@+id/vSignin"
+                    app:layout_constraintStart_toStartOf="@+id/vSignin"
+                    app:layout_constraintTop_toBottomOf="@+id/btnBookmark"/>
+
+                <Button
+                    android:id="@+id/btnLogout"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_stroke_bottom"
+                    android:fontFamily="@font/noto_sans_cjkkr_light"
+                    android:gravity="start"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingStart="20dp"
+                    android:paddingTop="15dp"
+                    android:paddingBottom="15dp"
+                    android:text="@string/logout_str"
+                    android:textColor="@color/colorGray"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@+id/vSignin"
+                    app:layout_constraintStart_toStartOf="@+id/vSignin"
+                    app:layout_constraintTop_toBottomOf="@+id/btnPassword" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:id="@+id/vSigninAt"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.4"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/onSignin" />
+
+
+            <Button
+                android:id="@+id/btnCustomerService"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_stroke_bottom"
+                android:fontFamily="@font/noto_sans_cjkkr_light"
+                android:gravity="start"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/customer_service_str"
+                android:textColor="@color/colorGray"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/vSigninAt"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/vSigninAt"
+                app:layout_constraintTop_toBottomOf="@+id/vSigninAt" />
+
+            <Button
+                android:id="@+id/btnTermsPrivacy"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_stroke_bottom"
+                android:fontFamily="@font/noto_sans_cjkkr_light"
+                android:gravity="start"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/privacy_policy_str"
+                android:textColor="@color/colorGray"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/btnCustomerService"
+                app:layout_constraintStart_toStartOf="@+id/btnCustomerService"
+                app:layout_constraintTop_toBottomOf="@+id/btnCustomerService" />
+
+            <Button
+                android:id="@+id/btnTermsService"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_stroke_bottom"
+                android:fontFamily="@font/noto_sans_cjkkr_light"
+                android:gravity="start"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/terms_service_str"
+                android:textColor="@color/colorGray"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/btnTermsPrivacy"
+                app:layout_constraintStart_toStartOf="@+id/btnTermsPrivacy"
+                app:layout_constraintTop_toBottomOf="@+id/btnTermsPrivacy" />
+
+            <Button
+                android:id="@+id/btnReportAsKakao"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_stroke_bottom"
+                android:fontFamily="@font/noto_sans_cjkkr_bold"
+                android:gravity="start"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="@string/report_as_kakao_str"
+                android:textColor="@color/colorRed"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="@+id/btnTermsService"
+                app:layout_constraintStart_toStartOf="@+id/btnTermsService"
+                app:layout_constraintTop_toBottomOf="@+id/btnTermsService" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

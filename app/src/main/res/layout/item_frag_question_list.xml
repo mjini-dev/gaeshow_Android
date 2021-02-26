@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="post"
+            type="com.devup.android_shopping_mall.data.services.model.ServicesPost" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.devup.android_shopping_mall.view.service.ServicesAdapter.PostItemClickListener" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.service.ServicesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:onPostItemClickListener="@{()->clickListener.onPostItemClick(post.post_id)}">
+
+
+        <TextView
+            android:id="@+id/tvQuestionId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:text="@{Integer.toString(post.post_id)}"
+            android:textColor="@color/colorBlack"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/vQuestion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/index_str" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="20dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="@{post.title}"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvQuestionId"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/title_str" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:fontFamily="@font/noto_sans_cjkkr_regular"
+            android:text="@{post.date}"
+            android:textColor="@color/colorGray"
+            android:textSize="11sp"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="@string/created_at_str" />
+
+        <View
+            android:id="@+id/vQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="25dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

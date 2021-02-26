@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--총경력   -->
+    <string-array name="periodSelector">
+        <item>경력을 선택해주세요</item>
+        <item>신입</item>
+        <item>1년차</item>
+        <item>2년차</item>
+        <item>3년차</item>
+        <item>4년차</item>
+        <item>5년차</item>
+        <item>6년차</item>
+        <item>7년차</item>
+        <item>8년차</item>
+        <item>9년차</item>
+        <item>10년차 이상</item>
+    </string-array>
+
+
+    <!--근무지역 -->
+    <string-array name="workingPlaceSelector">
+        <item>근무하시는 지역을 선택해주세요</item>
+        <item>서울특별시</item>
+        <item>부산광역시</item>
+        <item>대구광역시</item>
+        <item>인천광역시</item>
+        <item>광주광역시</item>
+        <item>울산광역시</item>
+        <item>세종특별자치시</item>
+        <item>경기도</item>
+        <item>강원도</item>
+        <item>충청북도</item>
+        <item>충청남도</item>
+        <item>전라북도</item>
+        <item>전라남도</item>
+        <item>경상북도</item>
+        <item>경상남도</item>
+        <item>제주특별자치도</item>
+    </string-array>
+
+    <string-array name="workingDetailPlaceSelector">
+        <item>구 선택</item>
+        <item>종로구</item>
+        <item>중구</item>
+        <item>용산구</item>
+        <item>성동구</item>
+        <item>광진구</item>
+        <item>동대문구</item>
+        <item>중랑구</item>
+        <item>성북구</item>
+        <item>강북구</item>
+        <item>도봉구</item>
+        <item>노원구</item>
+        <item>은평구</item>
+        <item>서대문구</item>
+        <item>마포구</item>
+        <item>양천구</item>
+        <item>강서구</item>
+        <item>구로구</item>
+        <item>금천구</item>
+        <item>영등포구</item>
+        <item>동작구</item>
+        <item>관악구</item>
+        <item>서초구</item>
+        <item>강남구</item>
+        <item>강서구</item>
+        <item>송파구</item>
+        <item>강동구</item>
+    </string-array>
+
+    <!--근속 정보-->
+    <string-array name="continuePeriodSelector">
+        <item>근속 정보를 선택해주세요</item>
+        <item>신입</item>
+        <item>1년</item>
+        <item>2년</item>
+        <item>3년</item>
+        <item>4년</item>
+        <item>5년</item>
+        <item>6년</item>
+        <item>7년</item>
+        <item>8년</item>
+        <item>9년</item>
+        <item>10년 이상</item>
+    </string-array>
+
+
+    <!--문의 내용 종류  -->
+    <string-array name="servicesQuestionSelector">
+        <item> 문의 내용을 선택해주세요.</item>
+        <item> 계정 관련 문의</item>
+        <item> 상품 관련 문의</item>
+        <item> 커뮤니티 관련 문의</item>
+        <item> 이용 문의</item>
+        <item> 기타</item>
+    </string-array>
+
+    <!--신고이유 종류 -->
+    <string-array name="reportReasonSelector">
+        <item> 신고 사유를 선택해주세요.</item>
+        <item> 구입처 요청</item>
+        <item> 스포/낙시</item>
+        <item> 매물글</item>
+        <item> 과도한 친목</item>
+        <item> 홍보</item>
+        <item> 비매너</item>
+        <item> 음란성</item>
+        <item> 정치/사회관련</item>
+        <item> 허위 사실</item>
+        <item> 도배성 글</item>
+        <item> 투자/투기</item>
+        <item> 거짓 유저 정보</item>
+        <item> 기타</item>
+    </string-array>
+
+    <!--커뮤니티 게시글 검색 필터 종류  -->
+    <string-array name="communityFilter">
+        <item> 전체보기</item>
+        <item> 업무 얘기 공유</item>
+        <item> 자기 작업물 자랑</item>
+        <item> 회사 욕 하기</item>
+        <item> 프리랜서 팁 공유</item>
+        <item> 워크스페이스 공유</item>
+    </string-array>
+
+    <!--커뮤니티 게시글 검색 필터 종류  -->
+    <string-array name="searchFilter">
+        <item> 내용</item>
+        <item> 닉네임</item>
+        <item> 태그</item>
+    </string-array>
+
+<!--커뮤니티_연봉보기 -->
+    <string-array name="period">
+        <item>전체</item>
+        <item>신입</item>
+        <item>1년</item>
+        <item>2년</item>
+        <item>3년</item>
+        <item>4년</item>
+        <item>5년</item>
+        <item>6년</item>
+        <item>7년</item>
+        <item>8년</item>
+        <item>9년</item>
+        <item>10년 이상</item>
+    </string-array>
+
+    <string-array name="salaryFilter">
+        <item>직군별</item>
+        <item>분야별</item>
+    </string-array>
+
+</resources>

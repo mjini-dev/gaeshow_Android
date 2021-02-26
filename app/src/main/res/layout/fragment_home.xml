@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.home.HomeFragment">
+
+    <ScrollView
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.home.HomeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            tools:context=".view.home.HomeFragment">
+
+            <TextView
+                android:id="@+id/tvPopularWorkspace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/popular_workspace_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvPopularWorkspaceList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="@+id/tvPopularWorkspace"
+                app:layout_constraintTop_toBottomOf="@+id/tvPopularWorkspace"
+                tools:listitem="@layout/item_frag_home_pop_workspace" />
+
+            <TextView
+                android:id="@+id/tvRecommendProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/recommend_product_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/rvPopularWorkspaceList"
+                app:layout_constraintTop_toBottomOf="@+id/rvPopularWorkspaceList" />
+
+            <Button
+                android:id="@+id/btnViewAll"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_stroke_no"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/view_all_str"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRecommendProduct"
+                app:layout_constraintEnd_toStartOf="@+id/imageBtnViewAll"
+                app:layout_constraintTop_toTopOf="@+id/tvRecommendProduct" />
+
+            <ImageButton
+                android:id="@+id/imageBtnViewAll"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:background="@drawable/ic_forward_ios_24"
+                app:layout_constraintBottom_toBottomOf="@+id/btnViewAll"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/btnViewAll" />
+
+            <Button
+                android:id="@+id/btnRecommendCategory1"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="13dp"
+                android:text="@string/category_str"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnRecommendCategory2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRecommendProduct" />
+
+            <Button
+                android:id="@+id/btnRecommendCategory2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="13dp"
+                android:text="@string/category_str"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnRecommendCategory1"
+                app:layout_constraintEnd_toStartOf="@+id/btnRecommendCategory3"
+                app:layout_constraintStart_toEndOf="@+id/btnRecommendCategory1"
+                app:layout_constraintTop_toTopOf="@+id/btnRecommendCategory1" />
+
+            <Button
+                android:id="@+id/btnRecommendCategory3"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="13dp"
+                android:text="@string/category_str"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnRecommendCategory2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnRecommendCategory2"
+                app:layout_constraintTop_toTopOf="@+id/btnRecommendCategory2" />
+
+            <Button
+                android:id="@+id/btnRecommendCategory4"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="13dp"
+                android:text="@string/category_str"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnRecommendCategory5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnRecommendCategory1" />
+
+            <Button
+                android:id="@+id/btnRecommendCategory5"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="13dp"
+                android:text="@string/category_str"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnRecommendCategory4"
+                app:layout_constraintEnd_toStartOf="@+id/btnRecommendCategory6"
+                app:layout_constraintStart_toEndOf="@+id/btnRecommendCategory4"
+                app:layout_constraintTop_toTopOf="@+id/btnRecommendCategory4" />
+
+            <Button
+                android:id="@+id/btnRecommendCategory6"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="13dp"
+                android:text="@string/category_str"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnRecommendCategory5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnRecommendCategory5"
+                app:layout_constraintTop_toTopOf="@+id/btnRecommendCategory5" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvRecommendProductList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvRecommendProduct"
+                app:layout_constraintTop_toBottomOf="@+id/btnRecommendCategory4"
+                app:spanCount="2"
+                tools:listitem="@layout/item_frag_home_reco_product" />
+
+            <TextView
+                android:id="@+id/tvTodayWorkspace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/today_workspace_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/rvRecommendProductList"
+                app:layout_constraintTop_toBottomOf="@+id/rvRecommendProductList" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTodayWorkspaceList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvTodayWorkspace"
+                app:layout_constraintTop_toBottomOf="@+id/tvTodayWorkspace"
+                tools:listitem="@layout/item_frag_home_today_workspace" />
+
+            <TextView
+                android:id="@+id/tvBestProduct"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/best_product_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/rvTodayWorkspaceList"
+                app:layout_constraintTop_toBottomOf="@+id/rvTodayWorkspaceList" />
+
+            <Button
+                android:id="@+id/btnBestProductCategory1"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="@string/category_str"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnBestProductCategory2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBestProduct" />
+
+            <Button
+                android:id="@+id/btnBestProductCategory2"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="@string/category_str"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnBestProductCategory1"
+                app:layout_constraintEnd_toStartOf="@+id/btnBestProductCategory3"
+                app:layout_constraintStart_toEndOf="@+id/btnBestProductCategory1"
+                app:layout_constraintTop_toTopOf="@+id/btnBestProductCategory1" />
+
+            <Button
+                android:id="@+id/btnBestProductCategory3"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="@string/category_str"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnBestProductCategory2"
+                app:layout_constraintEnd_toStartOf="@+id/btnBestProductCategory4"
+                app:layout_constraintStart_toEndOf="@+id/btnBestProductCategory2"
+                app:layout_constraintTop_toTopOf="@+id/btnBestProductCategory2"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/btnBestProductCategory4"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="@string/category_str"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnBestProductCategory3"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnBestProductCategory3"
+                app:layout_constraintTop_toTopOf="@+id/btnBestProductCategory3" />
+
+            <Button
+                android:id="@+id/btnBestProductCategory5"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="@string/category_str"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnBestProductCategory6"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnBestProductCategory1" />
+
+            <Button
+                android:id="@+id/btnBestProductCategory6"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="@string/category_str"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnBestProductCategory5"
+                app:layout_constraintEnd_toStartOf="@+id/btnBestProductCategory7"
+                app:layout_constraintStart_toEndOf="@+id/btnBestProductCategory5"
+                app:layout_constraintTop_toTopOf="@+id/btnBestProductCategory5" />
+
+            <Button
+                android:id="@+id/btnBestProductCategory7"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="3dp"
+                android:layout_marginRight="3dp"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="@string/category_str"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnBestProductCategory6"
+                app:layout_constraintEnd_toStartOf="@+id/btnBestProductCategory8"
+                app:layout_constraintStart_toEndOf="@+id/btnBestProductCategory6"
+                app:layout_constraintTop_toTopOf="@+id/btnBestProductCategory6" />
+
+            <Button
+                android:id="@+id/btnBestProductCategory8"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/shape_solid_white"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:padding="10dp"
+                android:text="@string/category_str"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnBestProductCategory7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/btnBestProductCategory7"
+                app:layout_constraintTop_toTopOf="@+id/btnBestProductCategory7" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBestProductList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvBestProduct"
+                app:layout_constraintTop_toBottomOf="@+id/btnBestProductCategory5"
+                tools:listitem="@layout/item_frag_home_best_product" />
+
+            <TextView
+                android:id="@+id/tvTodayPopularKeyword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/today_popular_keyword_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/tvTodayDate"
+                app:layout_constraintStart_toStartOf="@+id/tvBestProduct"
+                app:layout_constraintTop_toBottomOf="@+id/rvBestProductList" />
+
+            <TextView
+                android:id="@+id/tvTodayDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/noto_sans_cjkkr_light"
+                android:text="@string/today_str"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTodayPopularKeyword"
+                app:layout_constraintStart_toEndOf="@+id/tvTodayPopularKeyword"
+                app:layout_constraintTop_toTopOf="@+id/tvTodayPopularKeyword" />
+
+            <TextView
+                android:id="@+id/tvStandard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_marginLeft="3dp"
+                android:fontFamily="@font/noto_sans_cjkkr_light"
+                android:text="@string/standard_str"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTodayDate"
+                app:layout_constraintStart_toEndOf="@+id/tvTodayDate"
+                app:layout_constraintTop_toTopOf="@+id/tvTodayDate"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTodayPopularKeywordList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="50dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvTodayPopularKeyword"
+                app:layout_constraintTop_toBottomOf="@+id/tvTodayPopularKeyword"
+                tools:listitem="@layout/item_frag_home_today_pop_keyword" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
+    <ImageView
+        android:paddingStart="60dp"
+        android:paddingEnd="60dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/service_preparing"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

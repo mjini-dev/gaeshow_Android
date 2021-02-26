@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="colorEdge">#EAEDF2</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorWhite">#DDDDDD</color>
+    <color name="colorWhiteReal">#FFFFFF</color>
+    <color name="colorRed">#FF4545</color>
+    <color name="colorGray">#676767</color>
+    <color name="colorGrayDark">#535353</color>
+    <color name="colorGrayLight">#7B7C7E</color>
+
+    <color name="color_portfolio_platform">#BD52F2</color>
+    <color name="color_portfolio_platform_bg">#F4E5FC</color>
+
+    <color name="color_portfolio_language">#6979F8</color>
+    <color name="color_portfolio_language_bg">#E2E5FD</color>
+
+    <color name="color_portfolio_ide">#15C48B</color>
+    <color name="color_portfolio_ide_bg">#D6F5EB</color>
+
+    <color name="color_board">#EA6672</color>
+    <color name="color_board_bg">#FCE5E7</color>
+
+    <color name="color_badmouse">#E8A500</color>
+    <color name="color_badmouse_bg">#FDF5E2</color>
+
+    <color name="color_share_freelancer_tip">#F0975B</color>
+    <color name="color_share_freelancer_tip_bg">#FDF2EA</color>
+
+    <color name="color_pink_rating">#FF95C6</color>
+    <color name="color_yellow_rating">#FFE200</color>
+    <color name="color_bar_chart_rating">#6C6CFF</color>
+
+    <color name="color_qna">#EA6672</color>
+    <color name="color_delete">#3376EB</color>
+    <color name="color_keyword">#FF4D4D</color>
+
+    <color name="color_store_rating_high">#B9FFE6</color>
+    <color name="color_store_rating_low">#FFBCC3</color>
+    <color name="color_store_rating_equal">#B7D7FB</color>
+
+    <color name="color_chart_info">#E2DDDD</color>
+
+    <!-- 불투명   -->
+    <color name="color_opaque">#F3FFFFFF</color>
+
+</resources>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.search.SearchViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.search.SearchFragment">
+
+
+        <TextView
+            android:id="@+id/tvSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="start"
+            android:text="@string/search_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Spinner
+            android:id="@+id/spCommunityFilte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:entries="@array/communityFilter"
+            android:padding="10sp"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@+id/spSearchFilte"
+            app:layout_constraintStart_toStartOf="@+id/tvSearch"
+            app:layout_constraintTop_toBottomOf="@+id/tvSearch" />
+
+        <Spinner
+            android:id="@+id/spSearchFilte"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:entries="@array/searchFilter"
+            android:padding="10sp"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/spCommunityFilte"
+            app:layout_constraintEnd_toEndOf="@+id/tvSearch"
+            app:layout_constraintHorizontal_bias="0.36"
+            app:layout_constraintStart_toEndOf="@+id/spCommunityFilte"
+            app:layout_constraintTop_toTopOf="@+id/spCommunityFilte" />
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/shape_textview"
+            android:fontFamily="@font/noto_sans_medium"
+            android:hint="@string/search_hint_str"
+            android:padding="10dp"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@+id/btnSearch"
+            app:layout_constraintStart_toStartOf="@+id/spCommunityFilte"
+            app:layout_constraintTop_toBottomOf="@+id/spCommunityFilte" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:background="@color/colorBlack"
+            android:fontFamily="@font/noto_sans_bold"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="8dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="8dp"
+            android:text="@string/search_str"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+            app:layout_constraintEnd_toEndOf="@+id/spSearchFilte"
+            app:layout_constraintStart_toEndOf="@+id/etSearch"
+            app:layout_constraintTop_toTopOf="@+id/etSearch" />
+
+        <View
+            android:id="@+id/vTotal"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etSearch" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWorkspaceList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="6dp"
+            android:orientation="vertical"
+            android:visibility="@{vm.isWorkspacePage ? View.VISIBLE : View.GONE}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vTotal"
+            app:setWorkSpace="@{vm.workspacePosts}"
+            app:spanCount="2"
+            tools:listitem="@layout/item_frag_workspace_list" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBoardList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_stroke_top"
+            android:orientation="vertical"
+            android:visibility="@{vm.isWorkspacePage ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vTotal"
+            app:setWorkSpace="@{vm.posts}"
+            tools:listitem="@layout/item_frag_board_list" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

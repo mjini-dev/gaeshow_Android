@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_signup_step2"
+    app:startDestination="@id/signupStep02Fragment">
+
+    <fragment
+        android:id="@+id/signupStep02Fragment"
+        android:name="com.devup.android_shopping_mall.view.join.SignupStep02Fragment"
+        android:label="fragment_signup_step02"
+        tools:layout="@layout/fragment_signup_step02" >
+        <action
+            android:id="@+id/action_signupStep02Fragment_to_signupLanguageSearchFragment"
+            app:destination="@id/signupLanguageSearchFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signupStep02Fragment_to_signupIdeSearchFragment"
+            app:destination="@id/signupIdeSearchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupIdeDirectFragment"
+        android:name="com.devup.android_shopping_mall.view.join.SignupIdeDirectFragment"
+        android:label="fragment_signup_ide_direct"
+        tools:layout="@layout/fragment_signup_ide_direct" >
+        <action
+            android:id="@+id/action_signupIdeDirectFragment_to_signupIdeSearchFragment"
+            app:destination="@id/signupIdeSearchFragment"
+            app:popUpTo="@id/signupIdeDirectFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signupIdeDirectFragment_to_signupStep02Fragment"
+            app:destination="@id/signupStep02Fragment"
+            app:popUpTo="@id/signupIdeDirectFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupIdeSearchFragment"
+        android:name="com.devup.android_shopping_mall.view.join.SignupIdeSearchFragment"
+        android:label="fragment_signup_ide_search"
+        tools:layout="@layout/fragment_signup_ide_search" >
+        <action
+            android:id="@+id/action_signupIdeSearchFragment_to_signupStep02Fragment"
+            app:destination="@id/signupStep02Fragment"
+            app:popUpTo="@id/signupIdeSearchFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signupIdeSearchFragment_to_signupIdeDirectFragment"
+            app:destination="@id/signupIdeDirectFragment"
+            app:popUpTo="@id/signupIdeSearchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupLanguageDirectFragment"
+        android:name="com.devup.android_shopping_mall.view.join.SignupLanguageDirectFragment"
+        android:label="fragment_signup_language_direct"
+        tools:layout="@layout/fragment_signup_language_direct" >
+        <action
+            android:id="@+id/action_signupLanguageDirectFragment_to_signupLanguageSearchFragment"
+            app:destination="@id/signupLanguageSearchFragment"
+            app:popUpTo="@id/signupLanguageDirectFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signupLanguageDirectFragment_to_signupStep02Fragment"
+            app:destination="@id/signupStep02Fragment"
+            app:popUpTo="@id/signupLanguageDirectFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signupLanguageSearchFragment"
+        android:name="com.devup.android_shopping_mall.view.join.SignupLanguageSearchFragment"
+        android:label="fragment_signup_language_search"
+        tools:layout="@layout/fragment_signup_language_search" >
+        <action
+            android:id="@+id/action_signupLanguageSearchFragment_to_signupStep02Fragment"
+            app:destination="@id/signupStep02Fragment"
+            app:popUpTo="@id/signupLanguageSearchFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signupLanguageSearchFragment_to_signupLanguageDirectFragment"
+            app:destination="@id/signupLanguageDirectFragment"
+            app:popUpTo="@id/signupLanguageSearchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

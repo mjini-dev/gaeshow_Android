@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.home.MainViewModel" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:openDrawer="start">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".view.home.MainActivity">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbarMain"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarMain"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:minHeight="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+
+                    <ImageButton
+                        android:id="@+id/btnBackToolbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_left_3"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/colorGrayDark"
+                        android:visibility="gone" />
+
+                    <TextView
+                        android:id="@+id/tvTitleToolbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:ellipsize="marquee"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:fontFamily="@font/noto_sans_bold"
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="17sp" />
+
+                    <Button
+                        android:id="@+id/btnCloseToolbar"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/shape_stroke_no"
+                        android:fontFamily="@font/noto_sans_light"
+                        android:gravity="center_vertical"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="@string/close_str"
+                        android:textColor="@color/colorGrayDark"
+                        android:textSize="17sp"
+                        android:visibility="gone" />
+
+                    <ImageButton
+                        android:id="@+id/imageBtnDrawer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/ic_baseline_dehaze_24"
+                        android:visibility="gone" />
+
+                    <ImageButton
+                        android:id="@+id/imageBtnBell"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right"
+                        android:layout_marginEnd="16dp"
+                        android:background="@{vm.unreadCount == 0 ? @drawable/ic_bell_thin_3 : @drawable/ic_notifications_active_24}"
+                        android:visibility="@{vm.isExistAuthor ? View.VISIBLE : View.GONE}" />
+
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <fragment
+                android:id="@+id/fragmentMainFrameContainerView"
+                android:name="androidx.navigation.fragment.NavHostFragment"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:defaultNavHost="true"
+                app:layout_constraintBottom_toTopOf="@+id/menuBottomNavi"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appbarMain"
+                app:navGraph="@navigation/nav_graph" />
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/menuBottomNavi"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhiteReal"
+                app:itemIconTint="@color/colorBlack"
+                app:itemTextColor="@color/colorBlack"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:menu="@menu/menu_bottom_navi" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigationView"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            app:menu="@menu/menu_community_navi" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+</layout>

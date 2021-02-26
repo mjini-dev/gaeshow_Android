@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.mypage.MypageViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".view.mypage.BookmarkFragment">
+
+            <TextView
+                android:id="@+id/tvWorkspace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/bookmark_workspace_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/bookmark_workspace_str" />
+
+            <TextView
+                android:id="@+id/tvTotalWorkspace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/noto_sans_light"
+                android:text="@string/total_str_str"
+                android:textColor="@color/colorGrayLight"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/tvWorkspace"
+                app:layout_constraintTop_toBottomOf="@+id/tvWorkspace" />
+
+            <TextView
+                android:id="@+id/tvWorkspaceCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@{Integer.toString(vm.workspaceCount)}"
+                android:textColor="@color/colorGrayLight"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTotalWorkspace"
+                app:layout_constraintStart_toEndOf="@+id/tvTotalWorkspace"
+                tools:text="@string/num_symbol_str" />
+
+            <TextView
+                android:id="@+id/tvUnitWorkspace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:fontFamily="@font/noto_sans_light"
+                android:text="@string/unit_thing_str"
+                android:textColor="@color/colorGrayLight"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvWorkspaceCount"
+                app:layout_constraintStart_toEndOf="@+id/tvWorkspaceCount" />
+
+            <Button
+                android:id="@+id/btnMoreWorkspace"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/shape_stroke_no"
+                android:fontFamily="@font/noto_sans_cjkkr_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/more_str"
+                android:textColor="@color/colorGray"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvWorkspace" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvWorkspaceList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="6dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnMoreWorkspace"
+                app:setWorkSpace="@{vm.workspacePosts}"
+                app:spanCount="2"
+                tools:listitem="@layout/item_frag_workspace_list" />
+
+
+            <TextView
+                android:id="@+id/tvBoard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/bookmark_post_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@id/tvWorkspace"
+                app:layout_constraintTop_toBottomOf="@+id/rvWorkspaceList"
+                tools:text="@string/bookmark_post_str" />
+
+            <TextView
+                android:id="@+id/tvTotalBoard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/noto_sans_light"
+                android:text="@string/total_str_str"
+                android:textColor="@color/colorGrayLight"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/tvBoard"
+                app:layout_constraintTop_toBottomOf="@+id/tvBoard" />
+
+            <TextView
+                android:id="@+id/tvBoardCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@{Integer.toString(vm.postCount)}"
+                android:textColor="@color/colorGrayLight"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvTotalBoard"
+                app:layout_constraintStart_toEndOf="@+id/tvTotalBoard"
+                tools:text="@string/num_symbol_str" />
+
+            <TextView
+                android:id="@+id/tvUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
+                android:fontFamily="@font/noto_sans_light"
+                android:text="@string/unit_thing_str"
+                android:textColor="@color/colorGrayLight"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBoardCount"
+                app:layout_constraintStart_toEndOf="@+id/tvBoardCount" />
+
+            <Button
+                android:id="@+id/btnMorePost"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/shape_stroke_no"
+                android:fontFamily="@font/noto_sans_cjkkr_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/more_str"
+                android:textColor="@color/colorGray"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvBoard" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvBoardList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/shape_stroke_top"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnMorePost"
+                app:setWorkSpace="@{vm.posts}"
+                tools:listitem="@layout/item_frag_board_list" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.community.viewmodel.BoardDetailsViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.community.workspace.WorkspaceDetailFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".view.community.workspace.WorkspaceDetailFragment">
+
+            <TextView
+                android:id="@+id/tvWorkspace"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/share_workspace_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/vWorkspace"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvWorkspace" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:gravity="start"
+                android:text="@{vm.postDetails.title}"
+                android:textColor="@color/colorBlack"
+                android:textSize="23sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/vWorkspace"
+                tools:text="@string/title_str" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="9dp"
+                android:fontFamily="@font/noto_sans_cjkkr_regular"
+                android:text="@{vm.postDetails.date}"
+                android:textColor="@color/colorGray"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                tools:text="@string/created_at_str" />
+
+            <TextView
+                android:id="@+id/tvView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="14dp"
+                android:fontFamily="@font/noto_sans_cjkkr_regular"
+                android:text="@string/view_number_str"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvDate"
+                app:layout_constraintStart_toEndOf="@+id/tvDate"
+                app:layout_constraintTop_toTopOf="@+id/tvDate" />
+
+            <TextView
+                android:id="@+id/tvViewCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@{Integer.toString(vm.postDetails.view_count)}"
+                android:textColor="@color/colorGray"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvView"
+                app:layout_constraintStart_toEndOf="@+id/tvView"
+                app:layout_constraintTop_toTopOf="@+id/tvView"
+                tools:text="@string/view_number_str" />
+
+            <TextView
+                android:id="@+id/tvViewUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:fontFamily="@font/noto_sans_cjkkr_regular"
+                android:text="@string/unit_time_str"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvViewCount"
+                app:layout_constraintStart_toEndOf="@+id/tvViewCount"
+                app:layout_constraintTop_toTopOf="@+id/tvViewCount" />
+
+            <ImageView
+                android:id="@+id/ivBookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="2dp"
+                android:adjustViewBounds="true"
+                android:src="@{vm.bookmarkStatus ? @drawable/ic_bookmark_clicked3x : @drawable/ic_bookmark_df3x}"
+                app:layout_constraintBottom_toBottomOf="@+id/tvBookmarkCount"
+                app:layout_constraintEnd_toStartOf="@+id/tvBookmarkCount"
+                app:layout_constraintTop_toTopOf="@+id/tvBookmarkCount" />
+
+            <TextView
+                android:id="@+id/tvBookmarkCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@{Integer.toString(vm.postDetails.bookmark_count)}"
+                android:textColor="@color/colorBlack"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvViewUnit"
+                app:layout_constraintEnd_toStartOf="@+id/ivLiked"
+                app:layout_constraintTop_toTopOf="@+id/tvViewUnit"
+                app:layout_constraintVertical_bias="1.0"
+                tools:text="@string/watch_str" />
+
+            <ImageView
+                android:id="@+id/ivLiked"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginEnd="2dp"
+                android:adjustViewBounds="true"
+                android:src="@{vm.ratingStatus ? @drawable/ic_like_clicked_3x : @drawable/ic_like_df_3x}"
+                app:layout_constraintBottom_toBottomOf="@+id/tvLikedCount"
+                app:layout_constraintEnd_toStartOf="@+id/tvLikedCount"
+                app:layout_constraintTop_toTopOf="@+id/tvBookmarkCount" />
+
+            <TextView
+                android:id="@+id/tvLikedCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="13dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@{Integer.toString(vm.postDetails.liked)}"
+                android:textColor="@color/colorBlack"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivLiked"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/ivLiked"
+                tools:text="@string/star_str" />
+
+
+            <ImageView
+                android:id="@+id/ivWorkspace"
+                android:layout_width="0dp"
+                android:layout_height="270dp"
+                android:layout_marginTop="41dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintEnd_toEndOf="@+id/tvLikedCount"
+                app:layout_constraintStart_toStartOf="@+id/tvDate"
+                app:layout_constraintTop_toBottomOf="@+id/tvDate"
+                app:setThumbnail="@{vm.postDetails.thumbnail}"/>
+
+            <RelativeLayout
+                android:id="@+id/relative"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivWorkspace"
+                app:layout_constraintEnd_toEndOf="@+id/ivWorkspace"
+                app:layout_constraintStart_toStartOf="@+id/ivWorkspace"
+                app:layout_constraintTop_toTopOf="@+id/ivWorkspace" />
+
+
+            <Button
+                android:visibility="gone"
+                android:id="@+id/btnTagInfomation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="228dp"
+                android:layout_marginTop="52dp"
+                android:background="@drawable/shape_solid_black_small_round"
+                android:fontFamily="@font/noto_sans_bold"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/add_str"
+                android:textColor="@color/colorWhiteReal"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/ivWorkspace"
+                app:layout_constraintTop_toTopOf="@+id/ivWorkspace" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:visibility="gone"
+                android:id="@+id/constraintLayoutTagInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/shape_solid_white_radius"
+                android:padding="10dp"
+                app:layout_constraintEnd_toEndOf="@+id/btnTagInfomation"
+                app:layout_constraintHorizontal_bias="0.63"
+                app:layout_constraintStart_toStartOf="@+id/btnTagInfomation"
+                app:layout_constraintTop_toBottomOf="@+id/btnTagInfomation">
+
+                <TextView
+                    android:id="@+id/tvRelatedProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/related_product_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="11sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="SmallSp" />
+
+                <ImageView
+                    android:id="@+id/ivProductImage"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="5dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_launcher_background"
+                    app:layout_constraintStart_toStartOf="@+id/tvRelatedProduct"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRelatedProduct" />
+
+                <TextView
+                    android:id="@+id/tvProductName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:ellipsize="end"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:maxLines="1"
+                    android:text="@string/title_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="10sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/ivProductImage"
+                    app:layout_constraintTop_toTopOf="@+id/ivProductImage"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:id="@+id/tvPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/price_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="10sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvProductName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProductName"
+                    tools:ignore="SmallSp" />
+
+                <Button
+                    android:id="@+id/btnDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:background="@color/colorBlack"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:paddingLeft="20dp"
+                    android:paddingTop="4dp"
+                    android:paddingRight="20dp"
+                    android:paddingBottom="4dp"
+                    android:text="@string/detail_str"
+                    android:textColor="@color/colorWhiteReal"
+                    android:textSize="8sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvPrice"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPrice"
+                    tools:ignore="SmallSp" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTag"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="horizontal"
+                app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivWorkspace"
+                app:setBoardPostTag="@{vm.postDetails.tags}"
+                tools:listitem="@layout/item_tag_board" />
+
+
+            <WebView
+                android:id="@+id/tvContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/noto_sans_light"
+                android:gravity="start"
+                android:text="@string/content_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/ivWorkspace"
+                app:layout_constraintStart_toStartOf="@+id/ivWorkspace"
+                app:layout_constraintTop_toBottomOf="@+id/rvTag"
+                tools:text="@string/content_str"  />
+
+            <TextView
+                android:id="@+id/tvRelatedProductImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/related_product_image_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@+id/tvContent"
+                app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvThumbnail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="@+id/tvRelatedProductImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvRelatedProductImage"
+                tools:listitem="@layout/item_thumbnail" />
+
+            <View
+                android:id="@+id/vProductImage"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="34dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvThumbnail" />
+
+            <Button
+                android:id="@+id/btnShare"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/shape_stroke_no"
+                android:fontFamily="@font/noto_sans_cjkkr_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/share_str"
+                android:textColor="@color/colorGray"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/btnReport"
+                app:layout_constraintEnd_toStartOf="@+id/btnReport"
+                app:layout_constraintTop_toTopOf="@+id/btnReport" />
+
+            <Button
+                android:id="@+id/btnReport"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_stroke_no"
+                android:fontFamily="@font/noto_sans_cjkkr_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/post_report_str"
+                android:textColor="@color/colorGray"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="@+id/tvContent"
+                app:layout_constraintTop_toBottomOf="@+id/vProductImage" />
+
+            <View
+                android:id="@+id/vReport"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnReport" />
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ivProfileImage"
+                android:layout_width="33dp"
+                android:layout_height="33dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="22dp"
+                android:src="@drawable/default_img_3x"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/vReport"
+                app:setProfileImage="@{vm.postDetails.profile_image_url}" />
+
+            <TextView
+                android:id="@+id/tvNickname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@{vm.postDetails.profile_nickname}"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/ivProfileImage"
+                app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
+                app:layout_constraintTop_toTopOf="@+id/ivProfileImage"
+                tools:text="@string/nickname_str" />
+
+            <Button
+                android:id="@+id/btnFollow"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:fontFamily="@font/noto_sans_medium"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:background="@{vm.followStatus ? @drawable/shape_stroke_black_radius_filled : @drawable/shape_stroke_black_radius}"
+                android:text="@{vm.followStatus ? @string/unFollow_str : @string/follow_str}"
+                android:textColor="@{vm.followStatus ? @color/colorWhite : @color/colorBlack}"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvNickname"
+                app:layout_constraintStart_toEndOf="@+id/tvNickname"
+                app:layout_constraintTop_toTopOf="@+id/tvNickname" />
+
+            <TextView
+                android:id="@+id/tvJobField"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/noto_sans_medium"
+                android:gravity="end"
+                tools:text="@string/job_field_str"
+                android:text="@{vm.postDetails.job_type}"
+                android:textColor="@color/colorGray"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/tvNickname"
+                app:layout_constraintTop_toBottomOf="@+id/tvNickname" />
+
+            <TextView
+                android:id="@+id/tvSlash"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@string/slash_str"
+                android:textColor="@color/colorGray"
+                android:textSize="13sp"
+                android:visibility="@{vm.postDetails.job_type == null || vm.postDetails.experience_years == null? View.GONE : View.VISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@+id/tvJobField"
+                app:layout_constraintStart_toEndOf="@+id/tvJobField"
+                app:layout_constraintTop_toTopOf="@+id/tvJobField" />
+
+            <TextView
+                android:id="@+id/tvExperienceYears"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@{vm.postDetails.experience_years}"
+                tools:text="@string/experience_str"
+                android:textColor="@color/colorGray"
+                android:textSize="13sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSlash"
+                app:layout_constraintStart_toEndOf="@+id/tvSlash"
+                app:layout_constraintTop_toTopOf="@+id/tvSlash" />
+
+            <TextView
+                android:id="@+id/tvFollows"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:fontFamily="@font/noto_sans_light"
+                android:text="@string/follows_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="@+id/tvJobField"
+                app:layout_constraintTop_toBottomOf="@+id/tvJobField"
+                tools:layout_editor_absoluteX="82dp"
+                tools:layout_editor_absoluteY="79dp" />
+
+
+            <TextView
+                android:id="@+id/tvFollowsCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@{Integer.toString(vm.userInfo.following)}"
+                tools:text="@string/follows_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFollows"
+                app:layout_constraintStart_toEndOf="@+id/tvFollows"
+                app:layout_constraintTop_toTopOf="@+id/tvFollows" />
+
+            <TextView
+                android:id="@+id/tvFollower"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/noto_sans_light"
+                android:text="@string/follower_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFollowsCount"
+                app:layout_constraintStart_toEndOf="@+id/tvFollowsCount"
+                app:layout_constraintTop_toTopOf="@+id/tvFollowsCount" />
+
+            <TextView
+                android:id="@+id/tvFollowerCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@{Integer.toString(vm.userInfo.follower)}"
+                tools:text="@string/follower_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvFollower"
+                app:layout_constraintStart_toEndOf="@+id/tvFollower"
+                app:layout_constraintTop_toTopOf="@+id/tvFollower" />
+
+            <TextView
+                android:id="@+id/tvAnotherImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/another_image_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/ivProfileImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvFollows" />
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ivAnotherImage"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintStart_toStartOf="@+id/tvAnotherImage"
+                app:layout_constraintTop_toBottomOf="@+id/tvAnotherImage"
+                tools:listitem="@layout/item_thumbnail"
+                app:setPost="@{vm.posts}"/>
+
+            <View
+                android:id="@+id/vAnotherImage"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="27dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ivAnotherImage" />
+
+            <TextView
+                android:id="@+id/tvComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="31dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/comment_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/tvAnotherImage"
+                app:layout_constraintTop_toBottomOf="@+id/vAnotherImage" />
+
+
+            <TextView
+                android:id="@+id/tvParenthesesOpenComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@string/parentheses_open_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvComment"
+                app:layout_constraintStart_toEndOf="@+id/tvComment"
+                app:layout_constraintTop_toTopOf="@+id/tvComment"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <TextView
+                android:id="@+id/tvCommentCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@{Integer.toString(vm.commentCount)}"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvParenthesesOpenComment"
+                app:layout_constraintStart_toEndOf="@+id/tvParenthesesOpenComment"
+                app:layout_constraintTop_toTopOf="@+id/tvParenthesesOpenComment"
+                tools:text="@string/comment_str" />
+
+            <TextView
+                android:id="@+id/tvCommentUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/unit_thing_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCommentCount"
+                app:layout_constraintStart_toEndOf="@+id/tvCommentCount"
+                app:layout_constraintTop_toTopOf="@+id/tvCommentCount" />
+
+
+            <TextView
+                android:id="@+id/tvParenthesesCloseComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@string/parentheses_close_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvCommentUnit"
+                app:layout_constraintStart_toEndOf="@+id/tvCommentUnit"
+                app:layout_constraintTop_toTopOf="@+id/tvCommentUnit" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvCommentList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/shape_stroke_bottom"
+                android:orientation="vertical"
+                android:scrollbarFadeDuration="0"
+                android:scrollbarSize="5dp"
+                android:scrollbarThumbVertical="@android:color/darker_gray"
+                android:scrollbars="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toTopOf="@+id/etComment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvComment"
+                app:setBoardComment="@{vm.comments}"
+                tools:listitem="@layout/item_frag_board_view_comments_list"/>
+
+            <EditText
+                android:id="@+id/etComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/shape_textview"
+                android:enabled="@{vm.isExistAuthor ? true : false}"
+                android:hint="@{vm.isExistAuthor ? @string/comment_hint_str : @string/notice_login_str}"
+                android:padding="12dp"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnAddComment"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btnAddComment"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/colorBlack"
+                android:enabled="@{vm.isExistAuthor ? true : false}"
+                android:fontFamily="@font/noto_sans_bold"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="8dp"
+                android:text="@string/post_up_str"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etComment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etComment"
+                app:layout_constraintTop_toTopOf="@+id/etComment" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

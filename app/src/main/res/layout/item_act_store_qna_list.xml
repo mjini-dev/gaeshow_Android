@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/noto_sans_medium"
+        android:gravity="start"
+        android:maxLines="1"
+        android:text="@string/title_str"
+        android:textColor="@color/colorBlack"
+        android:textSize="17sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvContentQuestion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:fontFamily="@font/noto_sans_light"
+        android:gravity="start"
+        android:text="@string/content_str"
+        android:textColor="@color/colorGrayDark"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvDateQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/noto_sans_medium"
+        android:text="@string/created_at_str"
+        android:textColor="@color/colorGrayDark"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/tvContentQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/tvContentQuestion" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/ivProfileImageQuestion"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="6dp"
+        android:src="@color/colorBlack"
+        app:layout_constraintStart_toStartOf="@+id/tvDateQuestion"
+        app:layout_constraintTop_toBottomOf="@+id/tvDateQuestion" />
+
+    <TextView
+        android:id="@+id/tvNicknameQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="9dp"
+        android:layout_marginLeft="9dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/nickname_str"
+        android:textColor="@color/colorGray"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivProfileImageQuestion"
+        app:layout_constraintStart_toEndOf="@+id/ivProfileImageQuestion"
+        app:layout_constraintTop_toTopOf="@+id/ivProfileImageQuestion" />
+
+    <TextView
+        android:id="@+id/tvParenthesesOpenQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/parentheses_open_str"
+        android:textColor="@color/colorGrayDark"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNicknameQuestion"
+        app:layout_constraintStart_toEndOf="@+id/tvNicknameQuestion"
+        app:layout_constraintTop_toTopOf="@+id/tvNicknameQuestion" />
+
+
+    <TextView
+        android:id="@+id/tvJobFieldQuestion"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:gravity="end"
+        android:text="@string/job_field_str"
+        android:textColor="@color/colorGrayDark"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvParenthesesOpenQuestion"
+        app:layout_constraintStart_toEndOf="@+id/tvParenthesesOpenQuestion"
+        app:layout_constraintTop_toTopOf="@+id/tvParenthesesOpenQuestion" />
+
+    <TextView
+        android:id="@+id/tvSlashQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/slash_str"
+        android:textColor="@color/colorGrayDark"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvJobFieldQuestion"
+        app:layout_constraintStart_toEndOf="@+id/tvJobFieldQuestion"
+        app:layout_constraintTop_toTopOf="@+id/tvJobFieldQuestion" />
+
+    <TextView
+        android:id="@+id/tvExperienceQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:layout_marginLeft="3dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/experience_str"
+        android:textColor="@color/colorGrayDark"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvSlashQuestion"
+        app:layout_constraintStart_toEndOf="@+id/tvSlashQuestion"
+        app:layout_constraintTop_toTopOf="@+id/tvSlashQuestion" />
+
+    <TextView
+        android:id="@+id/tvParenthesesCloseQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/parentheses_close_str"
+        android:textColor="@color/colorGrayDark"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvExperienceQuestion"
+        app:layout_constraintStart_toEndOf="@+id/tvExperienceQuestion"
+        app:layout_constraintTop_toTopOf="@+id/tvExperienceQuestion" />
+
+
+    <Button
+        android:id="@+id/btnReportQuestion"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/shape_stroke_no"
+        android:fontFamily="@font/noto_sans_medium"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/report_str"
+        android:textColor="@color/colorGrayDark"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvParenthesesCloseQuestion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvParenthesesCloseQuestion" />
+
+    <Button
+        android:id="@+id/btnCommentAddQuestion"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="17dp"
+        android:layout_marginRight="17dp"
+        android:background="@drawable/shape_stroke_no"
+        android:fontFamily="@font/noto_sans_medium"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:text="@string/post_up_comment_a_str"
+        android:textColor="@color/colorGrayDark"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/btnReportQuestion"
+        app:layout_constraintEnd_toStartOf="@+id/btnReportQuestion"
+        app:layout_constraintTop_toTopOf="@+id/btnReportQuestion"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <View
+        android:id="@+id/vQna"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="18dp"
+        android:background="@color/colorWhite"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ivProfileImageQuestion" />
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutAnswer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_stroke_top_bottom"
+        android:padding="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vQna">
+
+        <TextView
+            android:id="@+id/tvContentAnswer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginEnd="3dp"
+            android:layout_marginRight="3dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:gravity="start"
+            android:text="@string/content_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDateAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/noto_sans_medium"
+            android:text="@string/created_at_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tvContentAnswer"
+            app:layout_constraintTop_toBottomOf="@+id/tvContentAnswer" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivProfileImageAnswer"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="6dp"
+            android:src="@color/colorBlack"
+            app:layout_constraintStart_toStartOf="@+id/tvDateAnswer"
+            app:layout_constraintTop_toBottomOf="@+id/tvDateAnswer" />
+
+        <TextView
+            android:id="@+id/tvNicknameAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:layout_marginLeft="9dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/nickname_str"
+            android:textColor="@color/colorGray"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivProfileImageAnswer"
+            app:layout_constraintStart_toEndOf="@+id/ivProfileImageAnswer"
+            app:layout_constraintTop_toTopOf="@+id/ivProfileImageAnswer" />
+
+        <TextView
+            android:id="@+id/tvParenthesesOpenAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/parentheses_open_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNicknameAnswer"
+            app:layout_constraintStart_toEndOf="@+id/tvNicknameAnswer"
+            app:layout_constraintTop_toTopOf="@+id/tvNicknameAnswer" />
+
+
+        <TextView
+            android:id="@+id/tvJobFieldAnswer"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="end"
+            android:text="@string/job_field_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvParenthesesOpenAnswer"
+            app:layout_constraintStart_toEndOf="@+id/tvParenthesesOpenAnswer"
+            app:layout_constraintTop_toTopOf="@+id/tvParenthesesOpenAnswer" />
+
+        <TextView
+            android:id="@+id/tvSlashAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/slash_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvJobFieldAnswer"
+            app:layout_constraintStart_toEndOf="@+id/tvJobFieldAnswer"
+            app:layout_constraintTop_toTopOf="@+id/tvJobFieldAnswer" />
+
+        <TextView
+            android:id="@+id/tvExperienceAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/experience_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSlashAnswer"
+            app:layout_constraintStart_toEndOf="@+id/tvSlashAnswer"
+            app:layout_constraintTop_toTopOf="@+id/tvSlashAnswer" />
+
+        <TextView
+            android:id="@+id/parentheses_closeAnswer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/parentheses_close_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvExperienceAnswer"
+            app:layout_constraintStart_toEndOf="@+id/tvExperienceAnswer"
+            app:layout_constraintTop_toTopOf="@+id/tvExperienceAnswer" />
+
+
+        <Button
+            android:id="@+id/btnReportAnswer"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/shape_stroke_no"
+            android:fontFamily="@font/noto_sans_medium"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/report_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/parentheses_closeAnswer"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/parentheses_closeAnswer" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

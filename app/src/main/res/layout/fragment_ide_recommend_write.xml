@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.community.viewmodel.BoardDetailsViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.community.ide.IdeRecommendWriteFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".view.community.ide.IdeRecommendWriteFragment">
+
+            <TextView
+                android:id="@+id/tvStarSymbol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginLeft="20dp"
+                android:fontFamily="@font/noto_sans_light"
+                android:text="@string/star_symbol_str"
+                android:textColor="@color/colorRed"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvSymbolInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_light"
+                android:text="@string/step1_info_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvStarSymbol"
+                app:layout_constraintStart_toEndOf="@+id/tvStarSymbol"
+                app:layout_constraintTop_toTopOf="@+id/tvStarSymbol" />
+
+            <TextView
+                android:id="@+id/tvRatingScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/rating_score_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/tvStarSymbol"
+                app:layout_constraintTop_toBottomOf="@+id/tvStarSymbol"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tvStarSymbolRatingScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/star_symbol_str"
+                android:textColor="@color/colorRed"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvRatingScore"
+                app:layout_constraintStart_toEndOf="@+id/tvRatingScore"
+                app:layout_constraintTop_toTopOf="@+id/tvRatingScore" />
+
+            <TextView
+                android:id="@+id/tvRatingScoreInfo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:fontFamily="@font/noto_sans_light"
+                android:text="@string/rating_score_info_str"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="@+id/tvRatingScore"
+                app:layout_constraintTop_toBottomOf="@+id/tvRatingScore" />
+
+
+            <androidx.appcompat.widget.AppCompatRatingBar
+                android:id="@+id/ratingBarRating"
+                style="?android:attr/ratingBarStyleIndicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:isIndicator="false"
+                android:max="5"
+                android:numStars="5"
+                android:progressBackgroundTint="@color/colorGrayLight"
+                android:progressTint="@color/color_yellow_rating"
+                android:rating="@{vm.isRateModify ? vm.rate : null}"
+                android:stepSize="1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.497"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvRatingScoreInfo" />
+
+            <TextView
+                android:id="@+id/tvSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:fontFamily="@font/noto_sans_cjkkr_light"
+                android:text="@string/select_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="@+id/ratingBarRating"
+                app:layout_constraintStart_toStartOf="@+id/ratingBarRating"
+                app:layout_constraintTop_toBottomOf="@+id/ratingBarRating" />
+
+            <View
+                android:id="@+id/vRating"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvSelect" />
+
+            <TextView
+                android:id="@+id/tvAdvantage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/strength_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/tvRatingScoreInfo"
+                app:layout_constraintTop_toBottomOf="@+id/vRating" />
+
+            <EditText
+                android:id="@+id/etAdvantage"
+                android:layout_width="0dp"
+                android:layout_height="157dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/shape_stroke_black"
+                android:ems="10"
+                android:fontFamily="@font/noto_sans_cjkkr_medium"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:padding="12dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:text="@{vm.isRateModify ? vm.advantage : null}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvAdvantage"
+                app:layout_constraintTop_toBottomOf="@+id/tvAdvantage" />
+
+            <TextView
+                android:id="@+id/tvDisadvantage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/weakness_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="@+id/etAdvantage"
+                app:layout_constraintTop_toBottomOf="@+id/etAdvantage" />
+
+            <EditText
+                android:id="@+id/etDisadvantage"
+                android:layout_width="0dp"
+                android:layout_height="157dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/shape_stroke_black"
+                android:ems="10"
+                android:fontFamily="@font/noto_sans_cjkkr_medium"
+                android:gravity="start|top"
+                android:inputType="textMultiLine"
+                android:padding="12dp"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                android:text="@{vm.isRateModify ? vm.disadvantage : null}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvDisadvantage"
+                app:layout_constraintTop_toBottomOf="@+id/tvDisadvantage" />
+
+            <Button
+                android:id="@+id/btnRatingAdd"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="40dp"
+                android:background="@color/colorBlack"
+                android:fontFamily="@font/noto_sans_cjkkr_light"
+                android:text="@string/post_up_rating_str"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/etDisadvantage"
+                app:layout_constraintStart_toStartOf="@+id/etDisadvantage"
+                app:layout_constraintTop_toBottomOf="@+id/etDisadvantage" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

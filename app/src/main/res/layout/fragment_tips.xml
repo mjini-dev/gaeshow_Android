@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.community.viewmodel.BoardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.community.tips.TipsFragment">
+        <!--share_tips-->
+        <TextView
+            android:id="@+id/tvTips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/tips_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTotalBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/total_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/tvTips"
+            app:layout_constraintTop_toBottomOf="@+id/tvTips" />
+
+        <TextView
+            android:id="@+id/tvTipsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@{Integer.toString(vm.postCount)}"
+            tools:text="@string/num_symbol_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTotalBoard"
+            app:layout_constraintStart_toEndOf="@+id/tvTotalBoard"
+            app:layout_constraintTop_toTopOf="@+id/tvTotalBoard" />
+
+        <TextView
+            android:id="@+id/tvUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/unit_thing_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTipsCount"
+            app:layout_constraintStart_toEndOf="@+id/tvTipsCount"
+            app:layout_constraintTop_toTopOf="@+id/tvTipsCount" />
+
+
+        <Button
+            android:id="@+id/btnWrite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@color/colorBlack"
+            android:fontFamily="@font/noto_sans_medium"
+            android:minHeight="0dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/write_str"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUnit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvUnit" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTipsList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/shape_stroke_top"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalBoard"
+            app:setPost="@{vm.posts}"
+            tools:listitem="@layout/item_frag_board_list" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

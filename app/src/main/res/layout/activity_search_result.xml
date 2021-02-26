@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.search.ResultActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".view.search.ResultActivity">
+
+        <View
+            android:id="@+id/vResult"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/store_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vResult" />
+
+        <TextView
+            android:id="@+id/tvTotalStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/total_str_str"
+            android:textColor="@color/colorGrayLight"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvStore"
+            app:layout_constraintStart_toEndOf="@+id/tvStore" />
+
+        <TextView
+            android:id="@+id/tvProductCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/num_symbol_str"
+            android:textColor="@color/colorGrayLight"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTotalStore"
+            app:layout_constraintStart_toEndOf="@+id/tvTotalStore" />
+
+        <TextView
+            android:id="@+id/tvUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/unit_thing_str"
+            android:textColor="@color/colorGrayLight"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvProductCount"
+            app:layout_constraintStart_toEndOf="@+id/tvProductCount" />
+
+        <Spinner
+            android:id="@+id/spStore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvStore"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvStore" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvProductList"
+            android:layout_width="0dp"
+            android:layout_height="580dp"
+            android:layout_marginTop="27dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvStore"
+            tools:listitem="@layout/item_frag_store_product_list" />
+
+
+        <TextView
+            android:id="@+id/tvWorkspace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/workspace_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="17sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvProductList" />
+
+        <TextView
+            android:id="@+id/tvTotalWorkspace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginLeft="4dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/total_str_str"
+            android:textColor="@color/colorGrayLight"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvWorkspace"
+            app:layout_constraintStart_toEndOf="@+id/tvWorkspace" />
+
+        <TextView
+            android:id="@+id/tvWorkspaceCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:layout_marginLeft="3dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/num_symbol_str"
+            android:textColor="@color/colorGrayLight"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTotalWorkspace"
+            app:layout_constraintStart_toEndOf="@+id/tvTotalWorkspace" />
+
+        <TextView
+            android:id="@+id/tvUnitWorkspace"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/unit_thing_str"
+            android:textColor="@color/colorGrayLight"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvWorkspaceCount"
+            app:layout_constraintStart_toEndOf="@+id/tvWorkspaceCount" />
+
+        <Spinner
+            android:id="@+id/spWorkspace"
+            android:layout_width="110dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvWorkspace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvWorkspace" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWorkspaceList"
+            android:layout_width="0dp"
+            android:layout_height="580dp"
+            android:layout_marginTop="27dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvWorkspace"
+            app:spanCount="2"
+            tools:listitem="@layout/item_frag_workspace_list" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

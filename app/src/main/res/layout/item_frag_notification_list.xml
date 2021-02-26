@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="noti"
+            type="com.devup.android_shopping_mall.data.notification.model.Notification" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.devup.android_shopping_mall.view.home.NotificationAdapter.PostItemClickListener" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.home.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:onPostItemClickListener="@{()->clickListener.onPostItemClick(position)}">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivUnread"
+            android:layout_width="5dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="8dp"
+            android:background="@color/colorRed"
+            android:visibility="@{noti.is_read == 0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPostTypeOpen"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvPostTypeOpen" />
+
+        <TextView
+            android:id="@+id/tvPostTypeOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/noto_sans_cjkkr_bold"
+            android:text="@string/post_type_open_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPostType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjkkr_bold"
+            android:text="@{noti.type}"
+            tools:text="@string/post_type_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPostTypeOpen"
+            app:layout_constraintStart_toEndOf="@+id/tvPostTypeOpen"
+            app:layout_constraintTop_toTopOf="@+id/tvPostTypeOpen" />
+
+        <TextView
+            android:id="@+id/tvPostTypeClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjkkr_bold"
+            android:text="@string/post_type_close_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPostType"
+            app:layout_constraintEnd_toStartOf="@+id/tvContent"
+            app:layout_constraintStart_toEndOf="@+id/tvPostType"
+            app:layout_constraintTop_toTopOf="@+id/tvPostType" />
+
+
+        <TextView
+            android:id="@+id/tvContent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:gravity="start"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:text="@{noti.content}"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPostTypeOpen"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvPostTypeClose"
+            app:layout_constraintTop_toTopOf="@+id/tvPostTypeOpen"
+            tools:text="@string/content_str" />
+
+        <View
+            android:id="@+id/vNoti"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

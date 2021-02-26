@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.store.StoreUserReviewActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarStoreUserReview"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbarStoreUserReview"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="false"
+            android:minHeight="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageButton
+                android:id="@+id/btnBackToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_left"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/tvTitleToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/noto_sans_bold"
+                android:gravity="center_vertical"
+                android:text=""
+                android:textColor="@color/colorBlack"
+                android:textSize="17sp" />
+
+            <Button
+                android:id="@+id/btnCloseToolbar"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/shape_stroke_no"
+                android:fontFamily="@font/noto_sans_light"
+                android:gravity="center_vertical"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/close_str"
+                android:textColor="@color/colorGrayDark"
+                android:textSize="17sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/tvTotalBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/noto_sans_medium"
+        android:text="@string/total_str"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appbarStoreUserReview" />
+
+    <TextView
+        android:id="@+id/tvUserReviewCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:fontFamily="@font/noto_sans_medium"
+        android:text="@string/user_review_str"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTotalBoard"
+        app:layout_constraintStart_toEndOf="@+id/tvTotalBoard"
+        app:layout_constraintTop_toTopOf="@+id/tvTotalBoard" />
+
+    <TextView
+        android:id="@+id/tvUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:fontFamily="@font/noto_sans_medium"
+        android:text="@string/unit_thing_str"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvUserReviewCount"
+        app:layout_constraintStart_toEndOf="@+id/tvUserReviewCount"
+        app:layout_constraintTop_toTopOf="@+id/tvUserReviewCount" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvExpectationList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTotalBoard"
+        tools:listitem="@layout/item_act_store_user_review_list" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="spinnerAdapter"
+            type="android.widget.ArrayAdapter" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.community.viewmodel.BoardDetailsViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.community.SalaryFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".view.community.SalaryFragment">
+
+            <TextView
+                android:id="@+id/tvSalaryAverage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/developer_average_salary_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvAverageSalaryInfo1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/tvAverageSalaryInfo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/noto_sans_cjkkr_regular"
+                android:text="@string/average_salary_info1_str"
+                android:textColor="@color/colorGray"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvSalaryAverageCount"
+                app:layout_constraintStart_toStartOf="@+id/tvSalaryAverage"
+                app:layout_constraintTop_toBottomOf="@+id/tvSalaryAverage" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_cjkkr_regular"
+                android:text="@string/created_at_str"
+                android:textColor="@color/colorGray"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvAverageSalaryInfo1"
+                app:layout_constraintStart_toEndOf="@+id/tvAverageSalaryInfo1"
+                app:layout_constraintTop_toTopOf="@+id/tvAverageSalaryInfo1" />
+
+            <TextView
+                android:id="@+id/tvAverageSalaryInfo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_cjkkr_regular"
+                android:text="@string/average_salary_info2_str"
+                android:textColor="@color/colorGray"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvDate"
+                app:layout_constraintStart_toEndOf="@+id/tvDate"
+                app:layout_constraintTop_toTopOf="@+id/tvDate" />
+
+            <TextView
+                android:id="@+id/tvSalaryAverageCount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/noto_sans_cjkkr_light"
+                android:text="@{Integer.toString(vm.postSalaryDetails.average_annual_salary)}"
+                android:textColor="@color/colorBlack"
+                android:textSize="27sp"
+                app:layout_constraintBottom_toTopOf="@+id/spRank"
+                app:layout_constraintStart_toStartOf="@+id/tvAverageSalaryInfo1"
+                app:layout_constraintTop_toBottomOf="@+id/tvAverageSalaryInfo1"
+                tools:text="@string/average_salary_str" />
+
+            <TextView
+                android:id="@+id/tvSalaryUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_cjkkr_light"
+                android:text="@string/unit_salary_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="27sp"
+                app:layout_constraintBottom_toBottomOf="@+id/tvSalaryAverageCount"
+                app:layout_constraintStart_toEndOf="@+id/tvSalaryAverageCount"
+                app:layout_constraintTop_toTopOf="@+id/tvSalaryAverageCount"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spRank"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="9dp"
+                android:entries="@array/period"
+                android:padding="10dp"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@+id/ivSalaryChart"
+                app:layout_constraintEnd_toStartOf="@+id/spJobType"
+                app:layout_constraintStart_toStartOf="@+id/tvSalaryAverageCount"
+                app:layout_constraintTop_toBottomOf="@+id/tvSalaryAverageCount" />
+
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/spJobType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:entries="@array/salaryFilter"
+                android:padding="10dp"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/spRank"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/spRank"
+                app:layout_constraintTop_toTopOf="@+id/spRank" />
+
+            <com.github.mikephil.charting.charts.BarChart
+                android:id="@+id/ivSalaryChart"
+                android:layout_width="0dp"
+                android:layout_height="350dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/ic_launcher_background"
+                app:layout_constraintBottom_toTopOf="@+id/tvSalaryTop3"
+                app:layout_constraintEnd_toEndOf="@+id/spJobType"
+                app:layout_constraintStart_toStartOf="@+id/spRank"
+                app:layout_constraintTop_toBottomOf="@+id/spRank"
+                app:salary="@{vm.postSalaryDetails.average_annual_salaries}" />
+
+            <TextView
+                android:id="@+id/tvSalaryTop3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:fontFamily="@font/noto_sans_cjkkr_bold"
+                android:text="@string/salary_top3_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toTopOf="@+id/rvSalaryTop3List"
+                app:layout_constraintStart_toStartOf="@+id/spRank"
+                app:layout_constraintTop_toBottomOf="@+id/ivSalaryChart" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSalaryTop3List"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="20dp"
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvSalaryTop3"
+                app:layout_constraintTop_toBottomOf="@+id/tvSalaryTop3"
+                app:setSalaryTop="@{vm.postSalaryTop}"
+                tools:listitem="@layout/item_frag_salary_top3_list" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.mypage.MypageViewModel" />
+    </data>
+
+    <!--<ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.mypage.UsersMorePostFragment">-->
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.mypage.UsersMorePostFragment">
+
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="20dp"
+            android:ellipsize="marquee"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:text="@{vm.title}"
+            android:textColor="@color/colorBlack"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="" />
+        <!--android:text="@{vm.isWorkspacePage ? vm.userInfo.profile_nickname + @string/workspace_info_str : vm.userInfo.profile_nickname + @string/post_info_str }"-->
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="4dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/total_str_str"
+            android:textColor="@color/colorGrayLight"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@+id/vTotal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <TextView
+            android:id="@+id/tvCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@{vm.isWorkspacePage ? Integer.toString(vm.workspaceCount) : Integer.toString(vm.postCount)}"
+            android:textColor="@color/colorGrayLight"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTotal"
+            app:layout_constraintStart_toEndOf="@+id/tvTotal"
+            tools:text="@string/num_symbol_str" />
+
+        <TextView
+            android:id="@+id/tvUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/unit_thing_str"
+            android:textColor="@color/colorGrayLight"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvCount"
+            app:layout_constraintStart_toEndOf="@+id/tvCount" />
+
+        <View
+            android:id="@+id/vTotal"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotal" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvWorkspaceList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="6dp"
+            android:orientation="vertical"
+            android:visibility="@{vm.isWorkspacePage ? View.VISIBLE : View.GONE}"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vTotal"
+            app:setWorkSpace="@{vm.workspacePosts}"
+            app:spanCount="2"
+            tools:listitem="@layout/item_frag_workspace_list" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBoardList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/shape_stroke_top"
+            android:orientation="vertical"
+            android:visibility="@{vm.isWorkspacePage ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/vTotal"
+            app:setWorkSpace="@{vm.posts}"
+            tools:listitem="@layout/item_frag_board_list" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <!--</ScrollView>-->
+</layout>

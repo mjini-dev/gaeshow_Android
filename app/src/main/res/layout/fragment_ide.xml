@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.community.viewmodel.BoardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.community.ide.IdeFragment">
+
+        <RadioGroup
+            android:id="@+id/radioGroupLanguageIde"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/radioBtnLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="7dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@android:color/transparent"
+                android:checked="true"
+                android:fontFamily="@font/noto_sans_bold"
+                android:gravity="center"
+                android:paddingLeft="16dp"
+                android:paddingTop="13dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="13dp"
+                android:text="@string/language_str_str"
+                android:textColor="@color/radio_flat_text_selector"
+                android:textSize="11sp"
+                tools:ignore="SmallSp"
+                android:onClick="@{() -> vm.getLanguageList()}"/>
+
+            <RadioButton
+                android:id="@+id/radioBtnIde"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="7dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_flat_selector"
+                android:button="@android:color/transparent"
+                android:fontFamily="@font/noto_sans_bold"
+                android:gravity="center"
+                android:paddingLeft="16dp"
+                android:paddingTop="13dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="13dp"
+                android:text="@string/ide_str_str"
+                android:textColor="@color/radio_flat_text_selector"
+                android:textSize="11sp"
+                tools:ignore="SmallSp"
+                android:onClick="@{() -> vm.getIdeList()}"/>
+        </RadioGroup>
+
+
+        <TextView
+            android:id="@+id/tvLanguageList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@{vm.isTypeLanguage ? @string/language_list_str : @string/ide_list_str}"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="@+id/radioGroupLanguageIde"
+            app:layout_constraintTop_toBottomOf="@+id/radioGroupLanguageIde" />
+
+<!--        <EditText-->
+<!--            android:id="@+id/etSearch"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:background="@drawable/shape_textview"-->
+<!--            android:fontFamily="@font/noto_sans_medium"-->
+<!--            android:hint="@string/search_hint_str"-->
+<!--            android:padding="10dp"-->
+<!--            android:textSize="13sp"-->
+<!--            app:layout_constraintEnd_toStartOf="@+id/btnSearch"-->
+<!--            app:layout_constraintStart_toStartOf="@+id/tvLanguageList"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/tvLanguageList" />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btnSearch"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_marginStart="10dp"-->
+<!--            android:layout_marginLeft="10dp"-->
+<!--            android:background="@color/colorBlack"-->
+<!--            android:fontFamily="@font/noto_sans_bold"-->
+<!--            android:minWidth="0dp"-->
+<!--            android:minHeight="0dp"-->
+<!--            android:paddingLeft="20dp"-->
+<!--            android:paddingTop="8dp"-->
+<!--            android:paddingRight="20dp"-->
+<!--            android:paddingBottom="8dp"-->
+<!--            android:text="@string/search_str"-->
+<!--            android:textColor="@color/colorWhite"-->
+<!--            android:textSize="13sp"-->
+<!--            app:layout_constraintBottom_toBottomOf="@+id/etSearch"-->
+<!--            app:layout_constraintEnd_toEndOf="@+id/radioGroupLanguageIde"-->
+<!--            app:layout_constraintStart_toEndOf="@+id/etSearch"-->
+<!--            app:layout_constraintTop_toTopOf="@+id/etSearch" />-->
+
+        <TextView
+            android:id="@+id/tvNumSymbol"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/noto_sans_cjkkr_regular"
+            android:text="@string/num_symbol_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintStart_toStartOf="@+id/tvLanguageList"
+            app:layout_constraintTop_toBottomOf="@+id/tvLanguageList" />
+
+        <TextView
+            android:id="@+id/tvLanguageName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:fontFamily="@font/noto_sans_cjkkr_regular"
+            android:text="@{vm.isTypeLanguage ? @string/language_name_str : @string/ide_name_str}"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNumSymbol"
+            app:layout_constraintStart_toEndOf="@+id/tvNumSymbol"
+            app:layout_constraintTop_toTopOf="@+id/tvNumSymbol" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvIdeLanguageList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_stroke_top"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvNumSymbol"
+            app:setCategory="@{vm.idesLanguages}"
+            tools:listitem="@layout/item_frag_ide_list" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

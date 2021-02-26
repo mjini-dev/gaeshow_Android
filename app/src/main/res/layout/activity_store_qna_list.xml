@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.store.StoreQnaListActivity">
+
+    <TextView
+        android:id="@+id/tvTotalBoard"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/noto_sans_medium"
+        android:text="@string/total_str"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvQnaCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/noto_sans_medium"
+        android:text="@string/qna_number_str"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvTotalBoard"
+        app:layout_constraintStart_toEndOf="@+id/tvTotalBoard"
+        app:layout_constraintTop_toTopOf="@+id/tvTotalBoard" />
+
+    <TextView
+        android:id="@+id/tvUnit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:fontFamily="@font/noto_sans_medium"
+        android:text="@string/unit_thing_str"
+        android:textColor="@color/colorGray"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvQnaCount"
+        app:layout_constraintStart_toEndOf="@+id/tvQnaCount"
+        app:layout_constraintTop_toTopOf="@+id/tvQnaCount" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProductQnaList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvTotalBoard"
+        tools:listitem="@layout/item_act_store_qna_list" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

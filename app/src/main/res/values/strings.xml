@@ -1,0 +1,430 @@
+<resources>
+    <string name="app_name">android-shopping-mall</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_str">Hello blank fragment</string>
+
+    <!-- 화폐단위표시   -->
+    <string name="price_format">%,2d</string>
+
+    <string name="navi_home_str">홈</string>
+    <string name="navi_store_str">스토어</string>
+    <string name="navi_community_str">커뮤니티</string>
+    <string name="navi_search_str">검색</string>
+    <string name="navi_more_str">내정보</string>
+
+    <string name="navi_workspace_str">워크스페이스 공유</string>
+    <string name="navi_salary_str">개발자 연봉보기</string>
+    <string name="navi_portfolio_str">자기 작업물 자랑</string>
+    <string name="navi_workstory_str">업무 얘기 공유</string>
+    <string name="navi_gossip_str">회사 욕하기</string>
+    <string name="navi_freelancer_str">프리랜서 팁공유</string>
+    <string name="navi_ide_str">IDE, 언어 추천</string>
+
+    <string name="navi_post_add_str">게시글 쓰기</string>
+    <string name="navi_workspace_add_str">워크스페이스 글작성</string>
+    <string name="navi_ide_review_add_str">Ide 리뷰 작석</string>
+    <string name="navi_language_review_add_str">언어 리뷰 작성</string>
+
+
+    <string name="toolbar_str">상단툴바</string>
+    <string name="close_str">닫기</string>
+    <string name="open_str">열기</string>
+
+    <string name="email_str">이메일</string>
+    <string name="email_hint_str">이메일을 입력해주세요</string>
+    <string name="password_str">비밀번호</string>
+    <string name="password_hint_str">비밀번호를 입력해주세요</string>
+    <string name="signin_str">로그인하기</string>
+    <string name="find_password_str">비밀번호찾기</string>
+    <string name="find_password_info_str">가입시 사용한 이메일을 적어주세요</string>
+    <string name="password_find_info_str">임시비밀번 발송을 완료했습니다.\n이메일을 확인해 주세요</string>
+    <string name="signup_signin_str">회원가입하기</string>
+    <string name="social_signin_str">간편 로그인</string>
+    <string name="signin_google_str">Sign In With Google</string>
+    <string name="signin_github_str">Sign In With GITHUB</string>
+    <string name="check_you_can_join_str">you_can_join</string>
+    <string name="check_you_can_login_str">you_can_login</string>
+
+
+    <string name="step1_str">STEP 01</string>
+    <string name="step2_str">STEP 02</string>
+
+    <string name="star_symbol_str">*</string>
+    <string name="step1_info_str">표시는 필수항목이오니 반드시 입력해주세요</string>
+    <string name="email_validate_str">사용할 수 없는 이메일 입니다</string>
+    <string name="password_chek_str">비밀번호 확인</string>
+    <string name="password_info_str">8~20 영문 대소문자, 최소 1개의 숫자 혹은 특수 문자를 포함해야합니다</string>
+    <string name="password_chek_hint_str">비밀번호를 다시한번 입력해주세요.</string>
+    <string name="password_chek_info_str">비밀번호를 다시한번 확인해주세요.</string>
+    <string name="nickname_str">닉네임</string>
+    <string name="nickname_hint_str">사용하식 닉네임을 입력해 주세요</string>
+    <string name="nickname_info_str">닉네임은 최소1글자에서 최대10글자까지 입력 가능합니다</string>
+    <string name="profile_str">프로필 사진</string>
+
+    <string name="add_str">+</string>
+
+    <string name="profile_choice_str">┿\n이미지 선택하기</string>
+    <!--    ┿ ┼-->
+    <string name="signup_str">가입하기</string>
+    <string name="signup_success_str">회원가입완료</string>
+    <string name="signup_failure_str">회원가입에 실패하였습니다.</string>
+
+    <string name="step_finish_str">추가정보 입력 완료</string>
+
+    <string name="signup_clear_str">회원가입이 완료되었습니다.</string>
+    <string name="step2_info_str">STEP 02의 항목들은 선택사항 입니다.</string>
+
+    <string name="birthday_str">생년월일</string>
+    <string name="birthday_hint_str">생년월일을 선택해 주세요</string>
+    <string name="job_type_str">직종</string>
+    <string name="job_field_str">업무분야</string>
+    <string name="gender_str">성별</string>
+    <string name="gender_m_str">남자</string>
+    <string name="gender_w_str">여자</string>
+    <string name="experience_str">총경력</string>
+    <string name="working_area_str">근무지역</string>
+    <string name="working_area_detail_alert_str">근무 지역구를 선택해 주세요</string>
+    <string name="salary_str">기본급여</string>
+    <string name="salary_hint_str">급여 정보를 작성해 주세요</string>
+    <string name="unit_salary_str">만원</string>
+    <string name="continuous_year_str">근속정보</string>
+    <string name="continuous_year_hint_str">근속 정보를 선택해주세요</string>
+    <string name="language_str">개발 언어</string>
+
+    <string name="job_rank_str">직급</string>
+    <string name="junior_str">신입</string>
+    <string name="unit_year_str">년차</string>
+
+
+    <string name="ide_prefer_str">자주사용하는 IDE</string>
+    <string name="github_url_str">Github URL</string>
+    <string name="github_url_hint_str">Github 주소를 작성해 주세요</string>
+    <string name="portfolio_url_str">개인 포트폴리오 URL</string>
+    <string name="portfolio_url_hint_str">개인 포트폴리오 주소를 작성해 주세요</string>
+    <string name="information_open_is_str">개인정보 공개 동의</string>
+    <string name="push_is_str">푸쉬 알림 동의</string>
+
+
+    <string name="modify_str">수정하기</string>
+    <string name="empty_str"> </string>
+
+    <string name="language_select_str">언어 선택하기</string>
+    <string name="language_select_hint_english_str">언어 이름을 영어로 검색해 주세요</string>
+    <string name="language_select_hint_str">사용하는 언어를 입력해 주세요</string>
+    <string name="direct_input_str">직접입력하기</string>
+    <string name="search_result_str">검색결과</string>
+    <string name="selected_language_str">선택한 언어</string>
+    <string name="select_complete_str">선택완료</string>
+    <string name="register_str">등록</string>
+    <string name="search_input_str">검색해서 입력하기</string>
+
+    <string name="ide_select_str">IDE 선택하기</string>
+    <string name="ide_select_hint_english_str">Ide 이름을 영어로 검색해 주세요</string>
+    <string name="ide_select_hint_str">사용하는 Ide를 입력해 주세요</string>
+    <string name="selected_ide_str">선택한 Ide</string>
+
+    <string name="agreement_terms_str">이용약관 동의</string>
+    <string name="agree_all_str">모두 동의하기</string>
+    <string name="required_str">(필수)</string>
+    <string name="choice_str">(선택)</string>
+    <string name="agreement_profile_str">프로필정보 추가 수집 동의</string>
+    <string name="agreement_receive_ad_str">광고성 정보 수신 동의</string>
+
+    <string name="agreement_terms_service_str">서비스 이용약관 동의</string>
+    <string name="agreement_privacy_policy_str">개인정보 수집 및 처리방침 동의</string>
+    <string name="to_signup_str">회원가입하기</string>
+
+    <string name="badmouse_str">회사욕하기</string>
+    <string name="badmouse_write_str">회사욕하기 글쓰기</string>
+    <string name="portfolio_str">자기작업물자랑</string>
+    <string name="portfolio_write_str">자기작업물자랑 글쓰기</string>
+    <string name="relrease_date_str">출시일</string>
+    <string name="relrease_date_hint_str">출시일 또는 작업 완료일을 입력해주세요</string>
+    <string name="tips_str">프리랜서팁공유</string>
+    <string name="tips_write_str">프리랜서팁공유 글쓰기</string>
+    <string name="board_str">업무얘기공유</string>
+    <string name="board_write_str">업무얘기공유 글쓰기</string>
+    <string name="share_workspace_str">워크스페이스 공유</string>
+
+    <string name="total_str">총</string>
+    <string name="unit_thing_str">개</string>
+    <string name="unit_time_str">회</string>
+    <string name="unit_post_str">개의 글</string>
+    <string name="unit_person_str">명</string>
+
+    <string name="notification_str">알림</string>
+    <string name="unread_noti_str">읽지 않은 알림</string>
+    <string name="nothing_noti_str">알림이 없습니다.</string>
+    <string name="noti_info_str">님의 알림 목록 입니다</string>
+
+
+    <string name="write_str">글쓰기</string>
+    <string name="title_str">제목</string>
+    <string name="title_hint_str">제목을 입력해주세요</string>
+    <string name="content_str">내용</string>
+
+    <string name="tag_str">태그</string>
+    <string name="tag_platform_str">플랫폼 태그</string>
+    <string name="tag_language_str">언어 태그</string>
+    <string name="tag_ide_str">IDE 태그</string>
+    <string name="tagging_str">태그걸기</string>
+    <string name="tag_input_str">태그입력</string>
+
+    <string name="post_up_str">등록하기</string>
+    <string name="created_at_str">등록날짜</string>
+    <string name="view_number_str">조회수</string>
+    <string name="share_number_str">공유횟수</string>
+    <string name="review_number_str">리뷰수</string>
+
+    <string name="watch_str">bookmark</string>
+    <string name="star_str">like</string>
+    <string name="share_str">공유하기</string>
+    <string name="post_report_str">게시글 신고하기</string>
+    <string name="comment_str">댓글</string>
+    <string name="comment_hint_str">댓글을 작성해 주세요</string>
+    <string name="depth_str">┕</string>
+    <string name="notice_login_str">로그인이 필요한 서비스 입니다.</string>
+    <string name="deleted_comment_str">삭제된 댓글입니다</string>
+    <string name="modify_comment_str">댓글 수정</string>
+
+
+    <string name="parentheses_open_str">(</string>
+    <string name="parentheses_close_str">)</string>
+
+    <string name="user_info_str">직군, 경력등 그외정보</string>
+
+    <string name="private_email_str">이메일 비공개</string>
+    <string name="private_info_str">정보 비공개</string>
+
+    <string name="search_str">검색하기</string>
+    <string name="search_hint_str">검색어를 입력해주세요</string>
+
+    <string name="question_type_str">문의 내용 종류</string>
+    <string name="question_content_str">문의 내용</string>
+    <string name="question_str">문의 하기</string>
+    <string name="question_type_choice_str">문의 내용 종류를 선택해 주세요</string>
+    <string name="report_reason_choice_str">신고 사유를 선택해 주세요</string>
+
+    <string name="reply_str">답변</string>
+    <string name="reply_info_str">답변 대기중 입니다.</string>
+    <string name="nothing_question_str">문의내역이 없습니다.</string>
+    <string name="nothing_report_str">신고내역이 없습니다.</string>
+
+    <string name="popular_workspace_str">인기 워크스페이스</string>
+    <string name="recommend_product_str">개쇼 추천 상품</string>
+    <string name="view_all_str">전체보기</string>
+    <string name="category_str">카테고리</string>
+    <string name="today_workspace_str">오늘의 워크스페이스</string>
+    <string name="best_product_str">개쇼 베스트 상품</string>
+    <string name="today_popular_keyword_str">오늘의 인기 키워드</string>
+
+    <string name="today_str">오늘날짜</string>
+    <string name="standard_str">기준</string>
+
+    <string name="signin_signup_str">로그인 / 회원가입하기</string>
+    <string name="signin_info_str">로그인이 필요한 서비스 입니다.</string>
+    <string name="slash_str">/</string>
+
+    <string name="modify_user_info_str">회원정보 수정하기</string>
+    <string name="mypage_str">마이페이지 보러가기</string>
+    <string name="bookmark_str">북마크한 게시물 보러가기</string>
+    <string name="bookmark_workspace_str">북마크한 워크스페이스</string>
+    <string name="bookmark_post_str">북마크한 게시물</string>
+    <string name="change_password_str">비밀번호 변경</string>
+    <string name="current_password_str">현재 비밀번호</string>
+    <string name="new_password_str">새 비밀번호</string>
+    <string name="logout_str">로그아웃</string>
+    <string name="customer_service_str">고객센터</string>
+    <string name="terms_service_str">서비스 이용약관</string>
+    <string name="privacy_policy_str">개인정보 처리방침</string>
+    <string name="report_as_kakao_str">카톡으로 신고하기</string>
+    <string name="page_info_str">님의 페이지</string>
+    <string name="workspace_info_str">님이 작성한 워크스페이스</string>
+    <string name="post_info_str">님이 작성한 게시글</string>
+
+    <string name="qna_number_str">Q&amp;A n개</string>
+    <string name="won_symbol_str">￦</string>
+    <string name="from_symbol_str">~</string>
+    <string name="price_str">가격</string>
+
+    <string name="review_rating_str">리뷰 평점</string>
+    <string name="expectation_review_str">구매전 기대평</string>
+    <string name="expectation_rating_str">구매전 기대평점</string>
+    <string name="post_up_expectation_str">기대평 작성</string>
+    <string name="post_up_expectation_hint_str">기대평을 작성해주세요</string>
+    <string name="post_up_expectation_review_str">기대평 등록하기</string>
+
+    <string name="expectation_review_info_str">상품의 구매전 기대평점입니다.</string>
+    <string name="user_total_rating_str">사용자 총평점</string>
+    <string name="user_total_rating_info_str">사용자들의 총 평점입니다.</string>
+    <string name="rating_ratio_str">평점 비율</string>
+    <string name="rating_ratio_info_str">작성된 리뷰의 별점 비율입니다.</string>
+
+    <string name="product_data_lab_str">상품 데이터랩 보기</string>
+    <string name="data_lab_str">데이터랩</string>
+    <string name="product_detail_more_str">상품 상세설명 더보기</string>
+    <string name="more_str">더보기 〉</string>
+    <string name="expectation_review_user_str">이 사용자의 구매전 기대평</string>
+
+    <string name="low_price_str">최저가 찾기</string>
+    <string name="product_detail_str">상품 상세 설명</string>
+    <string name="user_review_str">사용자 리뷰</string>
+    <string name="product_qna_str">상품 Q&amp;A</string>
+    <string name="product_along_with_str">함께 찾아본 상품</string>
+    <string name="report_str">신고하기</string>
+    <string name="report_reason_str">신고 사유</string>
+
+    <string name="post_up_product_review_str">제품 리뷰 등록하기</string>
+    <string name="post_up_comment_str">댓글달기</string>
+    <string name="post_up_qna_str">Q&amp;A 작성하기</string>
+    <string name="post_up_qna_hint_str">Q&amp;A를 작성해주세요</string>
+    <string name="post_up_qna_register_str">Q&amp;A 등록하기</string>
+
+    <string name="product_recommend_str">함께 보면 좋은 상품</string>
+
+    <string name="rating_score_str">평점</string>
+    <string name="rating_full_str">5</string>
+    <string name="rating_1_str">1.0</string>
+    <string name="rating_2_str">2.0</string>
+    <string name="rating_3_str">3.0</string>
+    <string name="rating_4_str">4.0</string>
+    <string name="rating_5_str">5.0</string>
+    <string name="percent_symbol_str">%</string>
+
+    <string name="q_str">Q</string>
+    <string name="a_str">A</string>
+
+    <string name="index_str">id</string>
+    <string name="post_type_open_str">[</string>
+    <string name="post_type_str">TYPE</string>
+    <string name="post_type_close_str">]</string>
+    <string name="delete_str">삭제</string>
+    <string name="delete_info_str">정말로 삭제하시겠습니까?</string>
+    <string name="deleting_str">삭제하기</string>
+    <string name="post_out_str">작성</string>
+    <string name="status_str">처리상태</string>
+
+    <string name="sellers_str">판매처</string>
+    <string name="benefit_information_str">혜택 정보</string>
+
+    <string name="store_rating_high_str">이 제품은 기대 평점보다 사용자의 총 평점이 더 높은 제품입니다.</string>
+    <string name="store_rating_low_str">이 제품은 기대 평점보다 사용자의 총 평점이 더 낮은 제품입니다.</string>
+    <string name="store_rating_equal_str">이 제품은 기대 평점과 사용자의 총 평점이 동일한 제품입니다.</string>
+
+    <string name="product_rating_str">상품 평점</string>
+    <string name="product_rating_info_str">상품의 별점을 선택해 주세요.</string>
+    <string name="select_str">선택해 주세요.</string>
+
+    <string name="like_reason_str">좋은 이유</string>
+    <string name="like_reason_info_str">좋았던점을 선택해주세요.</string>
+
+    <string name="image_attach_str">사진첨부</string>
+    <string name="image_attach_choice_str">+\n사진 첨부하기</string>
+
+    <string name="post_up_review_str">리뷰 작성</string>
+    <string name="post_up_review_hint_str">상품에 관련한 리뷰를 작성해주세요</string>
+    <string name="post_up_product_review_register_str">제품리뷰등록하기</string>
+
+    <string name="post_up_comment_a_str">답글쓰기</string>
+    <string name="post_up_workspace_str">워크스페이스 글작성하기</string>
+    <string name="writing_str">글작성</string>
+    <string name="writing_hint_str">내용을 작성해주세요</string>
+    <string name="product_tag_info_str">상품태그를 하시려면 태그하고싶은 위치를 클릭해주세요!</string>
+
+    <string name="product_name_hint_str">상품의 이름을 입력해주세요</string>
+    <string name="related_product_tag_str">관련된 상품 태그하기</string>
+    <string name="product_search_str">상품 검색하기</string>
+    <string name="tag_tagging_str">태그하기</string>
+
+    <string name="related_product_str">관련된 상품 보기</string>
+    <string name="related_product_image_str">이 사진과 관련된 상품 보기</string>
+    <string name="follow_str">팔로우</string>
+    <string name="unFollow_str">팔로우 취소</string>
+    <string name="follows_str">Follows</string>
+    <string name="follower_str">Follower</string>
+    <string name="another_image_str">이 사람의 다른 사진 보기</string>
+
+    <string name="detail_str">자세히보기</string>
+
+    <string name="developer_average_salary_str">개발자 평균 연봉</string>
+    <string name="average_salary_str">평균연봉</string>
+    <string name="average_salary_info1_str">본 데이터는 개쇼 회원들의 </string>
+    <string name="average_salary_info2_str"> 기준 평균 연봉 데이터 입니다.</string>
+    <string name="salary_top3_str">연봉 TOP3 직군</string>
+
+    <string name="main_use_language_str">주로 사용하는 언어</string>
+
+    <string name="language_str_str">언어</string>
+    <string name="ide_str_str">Ide</string>
+    <string name="preference_info_str">을(를) "<b>"선호"</b>"하는 개발자는</string>
+    <string name="preference_info_end_str"> 입니다.</string>
+
+    <string name="total_rating_str">총평점</string>
+    <string name="ide_total_rating_str">IDE 총평점</string>
+    <string name="language_total_rating_str">언어 총평점</string>
+
+    <string name="ide_total_rating_info_str">사용자들이 평가한 Ide의 평점입니다</string>
+    <string name="language_total_rating_info_str">사용자들이 평가한 언어의 평점입니다</string>
+
+    <string name="preference_developer_str">개발자별 선호도</string>
+    <string name="ide_preference_developer_info_str">개발자별 Ide선호도 입니다</string>
+    <string name="language_preference_developer_info_str">개발자별 언어선호도 입니다</string>
+
+    <string name="preference_experience_str">경력별 선호도</string>
+    <string name="ide_preference_experience_info_str">경력별 Ide선호도 입니다</string>
+    <string name="language_preference_experience_info_str">경력별 언어선호도 입니다</string>
+
+    <string name="ide_rating_str">Ide 평가</string>
+    <string name="language_rating_str">언어 평가</string>
+
+    <string name="view_all_after_login_str">로그인 하고\n전체 보기</string>
+    <string name="deleted_rating_str">삭제된 평점 입니다</string>
+    <string name="rating_str">평가하기</string>
+    <string name="post_up_rating_str">평가 등록하기</string>
+    <string name="strength_str">장점</string>
+    <string name="weakness_str">단점</string>
+    <string name="rating_score_info_str">별점을 선택해주세요</string>
+    <string name="rating_score_zero_info_str">평점 0점을 선택했습니다.</string>
+
+    <string name="ide_list_str">Ide 리스트</string>
+    <string name="language_list_str">언어 리스트</string>
+
+    <string name="ide_name_str">Ide 이름</string>
+    <string name="language_name_str">언어 이름</string>
+    <string name="num_symbol_str">#</string>
+
+    <string name="store_str">스토어</string>
+    <string name="workspace_str">워크스페이스</string>
+    <string name="total_str_str">전체</string>
+
+    <string name="choice_board_str">게시판 선택</string>
+
+    <string name="active_volume_str">활동량</string>
+    <string name="active_volume_info_str">활동량에 대한 설명</string>
+
+    <string name="notice_permission_str">[설정] > [권한] 에서 권한을 변경할 수 있습니다.</string>
+
+    <string name="notice_cancel_str">취소 되었습니다.</string>
+    <string name="notice_emailRegexp_str">사용할수 없는 이메일 입니다</string>
+    <string name="notice_passwordRegexp_str">비밀번호는 8~20 영문 대소문자, \n 최소 1개의 숫자 혹은 특수 문자를 포함해야합니다</string>
+    <string name="notice_passwordCheck_str">비밀번호가 일치하지 않습니다</string>
+    <string name="notice_nicknameRegexp_str">닉네임은 최소2글자에서 최대10글자까지 입력 가능합니다</string>
+
+    <string name="notice_check_email_str">이메일을 확인해주세요</string>
+    <string name="notice_email_str">이메일을 입력해주세요</string>
+    <string name="notice_nickname_str">닉네임을 입력해주세요</string>
+    <string name="notice_password_str">비밀번호를 입력해주세요</string>
+
+    <string name="gallery_str">앨범에서 사진선택</string>
+    <string name="camera_str">카메라로 사진찍기</string>
+    <string name="camera_cancel_str">사진찍기를 취소하였습니다.</string>
+
+    <string name="seoul_str">서울특별시</string>
+    <string name="ok_str">확인</string>
+    <string name="cancel_str">취소</string>
+    <string name="notice_already_registered_language_str">이미 등록한 언어 입니다</string>
+    <string name="notice_already_registered_ide_str">이미 등록한 Ide 입니다</string>
+    <string name="notice_blank_str">빈칸없이 입력해주세요</string>
+    <string name="before_service_str">서비스 준비중입니다.</string>
+
+</resources>

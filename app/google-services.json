@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "229317958263",
+    "firebase_url": "https://gaeshow-293809.firebaseio.com",
+    "project_id": "gaeshow-293809",
+    "storage_bucket": "gaeshow-293809.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:229317958263:android:249ee210d6b31764a28472",
+        "android_client_info": {
+          "package_name": "com.devup.android_shopping_mall"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "229317958263-hetcjflggq4e5f15t14sqcsifovgi7uk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBEgibDxTQ9koPIBBB75ut8PMUWc1EnlBM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "229317958263-hetcjflggq4e5f15t14sqcsifovgi7uk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

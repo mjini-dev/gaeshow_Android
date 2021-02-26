@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="salaries"
+            type="com.devup.android_shopping_mall.data.community.model.Salaries" />
+
+        <variable
+            name="languages"
+            type="com.devup.android_shopping_mall.data.community.model.Laguages" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@drawable/shape_solid_sky_radius"
+        android:padding="18dp">
+
+        <TextView
+            android:id="@+id/tvRankCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_solid_white_small_round"
+            android:fontFamily="@font/noto_sans_cjkkr_light"
+            android:text="@{Integer.toString(position+1)}"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/index_str" />
+
+        <TextView
+            android:id="@+id/tvJobField"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:text="@{salaries.name}"
+            android:textColor="@color/colorBlack"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvRankCount"
+            app:layout_constraintStart_toEndOf="@+id/tvRankCount"
+            app:layout_constraintTop_toTopOf="@+id/tvRankCount"
+            tools:text="@string/job_field_str" />
+
+        <TextView
+            android:id="@+id/tvParenthesesOpen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:fontFamily="@font/noto_sans_cjkkr_light"
+            android:text="@string/parentheses_open_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvJobField"
+            app:layout_constraintStart_toEndOf="@+id/tvJobField"
+            app:layout_constraintTop_toTopOf="@+id/tvJobField" />
+
+        <TextView
+            android:id="@+id/tvPersonCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjkkr_light"
+            android:text="@{Integer.toString(salaries.count)}"
+            android:textColor="@color/colorBlack"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvParenthesesOpen"
+            app:layout_constraintStart_toEndOf="@+id/tvParenthesesOpen"
+            app:layout_constraintTop_toTopOf="@+id/tvParenthesesOpen"
+            tools:text="@string/num_symbol_str" />
+
+        <TextView
+            android:id="@+id/tvPersonUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjkkr_light"
+            android:text="@string/unit_person_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPersonCount"
+            app:layout_constraintStart_toEndOf="@+id/tvPersonCount"
+            app:layout_constraintTop_toTopOf="@+id/tvPersonCount" />
+
+
+        <TextView
+            android:id="@+id/tvParenthesesClose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjkkr_light"
+            android:text="@string/parentheses_close_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPersonUnit"
+            app:layout_constraintStart_toEndOf="@+id/tvPersonUnit"
+            app:layout_constraintTop_toTopOf="@+id/tvPersonUnit" />
+
+        <TextView
+            android:id="@+id/tvMainLanguage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/noto_sans_cjkkr_bold"
+            android:text="@string/main_use_language_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tvJobField"
+            app:layout_constraintTop_toBottomOf="@+id/tvJobField" />
+
+        <TextView
+            android:id="@+id/tvMainLanguageTag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:background="@drawable/shape_solid_white_radius"
+            android:fontFamily="@font/noto_sans_medium"
+            app:setSalaryTopLanguage="@{salaries.laguages}"
+            android:textColor="@color/colorBlack"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvMainLanguage"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvMainLanguage"
+            app:layout_constraintTop_toTopOf="@+id/tvMainLanguage"
+            tools:text="@string/language_str" />
+
+        <TextView
+            android:id="@+id/tvSalaryAverage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="@font/noto_sans_cjkkr_bold"
+            android:text="@string/average_salary_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="@+id/tvMainLanguage"
+            app:layout_constraintTop_toBottomOf="@+id/tvMainLanguage" />
+
+        <TextView
+            android:id="@+id/tvSalaryAverageCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjkkr_light"
+            android:text="@{Integer.toString(salaries.basic_salary)}"
+            android:textColor="@color/colorBlack"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSalaryAverage"
+            app:layout_constraintStart_toStartOf="@+id/tvMainLanguageTag"
+            app:layout_constraintTop_toTopOf="@+id/tvSalaryAverage"
+            tools:text="@string/average_salary_str" />
+
+        <TextView
+            android:id="@+id/tvSalaryUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjkkr_light"
+            android:text="@string/unit_salary_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="19sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvSalaryAverageCount"
+            app:layout_constraintStart_toEndOf="@+id/tvSalaryAverageCount"
+            app:layout_constraintTop_toTopOf="@+id/tvSalaryAverageCount" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

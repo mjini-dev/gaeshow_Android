@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.terms.TermsViewModel" />
+    </data>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.terms.TermsActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="20dp"
+        tools:context=".view.terms.TermsActivity">
+
+        <TextView
+            android:id="@+id/tvAgreementTerms"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/agreement_terms_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toTopOf="@+id/checkBoxAgreeAll"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <CheckBox
+            android:id="@+id/checkBoxAgreeAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/agree_all_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="17sp"
+            android:checked="@{vm.allChecked}"
+            android:onClick="@{()-> vm.onAllCheckButtonChanged()}"
+            app:layout_constraintBottom_toTopOf="@+id/checkBoxFirst"
+            app:layout_constraintEnd_toEndOf="@+id/tvAgreementTerms"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/tvAgreementTerms"
+            app:layout_constraintTop_toBottomOf="@+id/tvAgreementTerms" />
+        
+        <CheckBox
+            android:id="@+id/checkBoxFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/noto_sans_medium"
+            android:text="@string/agreement_terms_service_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="17sp"
+            android:checked="@{vm.firstChecked}"
+            android:onClick="@{()-> vm.onCheckButtonChanged(1)}"
+            app:layout_constraintBottom_toTopOf="@+id/tvTermsService"
+            app:layout_constraintStart_toStartOf="@+id/tvAgreementTerms"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxAgreeAll" />
+
+        <TextView
+            android:id="@+id/tvFirst"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/required_str"
+            android:textColor="@color/colorRed"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBoxFirst"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxFirst"
+            app:layout_constraintTop_toTopOf="@+id/checkBoxFirst" />
+
+        <com.devup.android_shopping_mall.view.CustomWebView
+            android:id="@+id/tvTermsService"
+            android:layout_width="0dp"
+            android:layout_height="165dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_textview"
+            android:fontFamily="@font/noto_sans_light"
+            android:padding="10dp"
+            android:nestedScrollingEnabled="true"
+            android:text="@string/content_str"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toTopOf="@+id/checkBoxSecond"
+            app:layout_constraintEnd_toEndOf="@+id/tvAgreementTerms"
+            app:layout_constraintStart_toStartOf="@+id/tvAgreementTerms"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxFirst" />
+
+        <CheckBox
+            android:id="@+id/checkBoxSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/noto_sans_medium"
+            android:text="@string/agreement_privacy_policy_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="17sp"
+            android:checked="@{vm.secondChecked}"
+            android:onClick="@{()-> vm.onCheckButtonChanged(2)}"
+            app:layout_constraintBottom_toTopOf="@+id/tvTermsPrivacy"
+            app:layout_constraintStart_toStartOf="@+id/tvAgreementTerms"
+            app:layout_constraintTop_toBottomOf="@+id/tvTermsService" />
+
+        <TextView
+            android:id="@+id/tvSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/required_str"
+            android:textColor="@color/colorRed"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBoxSecond"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxSecond"
+            app:layout_constraintTop_toTopOf="@+id/checkBoxSecond" />
+
+
+        <com.devup.android_shopping_mall.view.CustomWebView
+            android:id="@+id/tvTermsPrivacy"
+            android:layout_width="0dp"
+            android:layout_height="165dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_textview"
+            android:maxLines="3"
+            android:padding="10dp"
+            android:scrollbars="vertical"
+            android:text="@string/content_str"
+            android:fontFamily="@font/noto_sans_light"
+            android:textSize="12sp"
+            android:textColor="@color/colorGray"
+            app:layout_constraintBottom_toTopOf="@+id/checkBoxThird"
+            app:layout_constraintEnd_toEndOf="@+id/tvAgreementTerms"
+            app:layout_constraintStart_toStartOf="@+id/tvAgreementTerms"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxSecond" />
+
+        <CheckBox
+            android:id="@+id/checkBoxThird"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/noto_sans_medium"
+            android:text="@string/agreement_profile_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="17sp"
+            android:checked="@{vm.thirdChecked}"
+            android:onClick="@{()-> vm.onCheckButtonChanged(3)}"
+            app:layout_constraintBottom_toTopOf="@+id/tvTermsAdditional"
+            app:layout_constraintStart_toStartOf="@+id/tvAgreementTerms"
+            app:layout_constraintTop_toBottomOf="@+id/tvTermsPrivacy" />
+
+        <TextView
+            android:id="@+id/tvThird"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/choice_str"
+            android:textColor="@color/colorRed"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBoxThird"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxThird"
+            app:layout_constraintTop_toTopOf="@+id/checkBoxThird" />
+
+        <com.devup.android_shopping_mall.view.CustomWebView
+            android:id="@+id/tvTermsAdditional"
+            android:layout_width="0dp"
+            android:layout_height="165dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_textview"
+            android:maxLines="3"
+            android:padding="10dp"
+            android:scrollbars="vertical"
+            android:text="@string/content_str"
+            android:fontFamily="@font/noto_sans_light"
+            android:textSize="12sp"
+            android:textColor="@color/colorGray"
+            app:layout_constraintBottom_toTopOf="@+id/checkBoxForth"
+            app:layout_constraintEnd_toEndOf="@+id/tvAgreementTerms"
+            app:layout_constraintStart_toStartOf="@+id/tvAgreementTerms"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxThird" />
+
+        <CheckBox
+            android:id="@+id/checkBoxForth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/noto_sans_medium"
+            android:text="@string/agreement_receive_ad_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="17sp"
+            android:checked="@{vm.fourthChecked}"
+            android:onClick="@{()-> vm.onCheckButtonChanged(4)}"
+            app:layout_constraintBottom_toTopOf="@+id/tvTermsAdvertising"
+            app:layout_constraintStart_toStartOf="@+id/tvAgreementTerms"
+            app:layout_constraintTop_toBottomOf="@+id/tvTermsAdditional" />
+
+        <TextView
+            android:id="@+id/tvForth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="3dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/choice_str"
+            android:textColor="@color/colorRed"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/checkBoxForth"
+            app:layout_constraintStart_toEndOf="@+id/checkBoxForth"
+            app:layout_constraintTop_toTopOf="@+id/checkBoxForth" />
+
+        <com.devup.android_shopping_mall.view.CustomWebView
+            android:id="@+id/tvTermsAdvertising"
+            android:layout_width="0dp"
+            android:layout_height="165dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_textview"
+            android:maxLines="3"
+            android:padding="10dp"
+            android:scrollbars="vertical"
+            android:text="@string/content_str"
+            android:fontFamily="@font/noto_sans_light"
+            android:textSize="12sp"
+            android:textColor="@color/colorGray"
+            app:layout_constraintBottom_toTopOf="@+id/btnSignup"
+            app:layout_constraintEnd_toEndOf="@+id/tvAgreementTerms"
+            app:layout_constraintStart_toStartOf="@+id/tvAgreementTerms"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintTop_toBottomOf="@+id/checkBoxForth" />
+
+        <Button
+            android:id="@+id/btnSignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorBlack"
+            android:fontFamily="@font/noto_sans_medium"
+            android:text="@string/to_signup_str"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTermsAdvertising" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView></layout>

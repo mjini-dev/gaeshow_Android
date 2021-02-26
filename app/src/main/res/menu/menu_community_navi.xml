@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigationWorkspace"
+        android:title="@string/navi_workspace_str"
+        />
+
+    <item
+        android:id="@+id/navigationSalary"
+        android:title="@string/navi_salary_str" />
+    <item
+        android:id="@+id/navigationPortfolio"
+        android:title="@string/navi_portfolio_str" />
+    <item
+        android:id="@+id/navigationBoard"
+        android:title="@string/navi_workstory_str" />
+    <item
+        android:id="@+id/navigationBadmouse"
+        android:title="@string/navi_gossip_str" />
+    <item
+        android:id="@+id/navigationTips"
+        android:title="@string/navi_freelancer_str" />
+    <item
+        android:id="@+id/navigationIde"
+        android:title="@string/navi_ide_str" />
+<!--
+    <item android:title="">
+        <menu>
+            <item android:id="@+id/navigationCommunitySearch"
+                android:title="게시판 글 검색하기"
+                android:icon="@drawable/ic_baseline_search_24"
+                />
+
+        </menu>
+
+    </item>-->
+
+
+</menu>

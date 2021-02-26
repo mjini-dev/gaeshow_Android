@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/shape_edittext_radius"
+    android:padding="15dp">
+
+    <RatingBar
+        android:id="@+id/ratingBarRatingBar"
+        style="?android:attr/ratingBarStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:max="5"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/colorWhite"
+        android:progressTint="@color/color_pink_rating"
+        android:rating="3.5"
+        android:stepSize="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRatingScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/rating_score_str"
+        android:textColor="@color/colorGrayLight"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ratingBarRatingBar"
+        app:layout_constraintStart_toEndOf="@+id/ratingBarRatingBar"
+        app:layout_constraintTop_toTopOf="@+id/ratingBarRatingBar"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/tvContent"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginRight="18dp"
+        android:fontFamily="@font/noto_sans_medium"
+        android:gravity="start"
+        android:text="@string/content_str"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ratingBarRatingBar"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBarRatingBar" />
+
+
+    <TextView
+        android:id="@+id/tvNickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/nickname_str"
+        android:textColor="@color/colorBlack"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@+id/tvContent"
+        app:layout_constraintTop_toBottomOf="@+id/tvContent"
+        tools:ignore="SmallSp" />
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginLeft="5dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/created_at_str"
+        android:textColor="@color/colorGrayLight"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNickname"
+        app:layout_constraintStart_toEndOf="@+id/tvNickname"
+        app:layout_constraintTop_toTopOf="@+id/tvNickname"
+        tools:ignore="SmallSp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.mypage.MoreFragmentViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/svMypageEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".view.mypage.MypageEditFragment">
+
+                <com.google.android.material.appbar.AppBarLayout
+                    android:id="@+id/appbarMypageEdit"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.Toolbar
+                        android:id="@+id/toolbarMypageEdit"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:clickable="false"
+                        android:minHeight="0dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <ImageButton
+                            android:visibility="gone"
+                            android:id="@+id/btnBackToolbar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/ic_left_3"
+                            android:gravity="center_vertical"
+                            android:textColor="@color/colorGrayDark" />
+
+                        <TextView
+                            android:id="@+id/tvTitleToolbar"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:fontFamily="@font/noto_sans_bold"
+                            android:gravity="center_vertical"
+                            android:text="@string/modify_user_info_str"
+                            android:textColor="@color/colorBlack"
+                            android:textSize="17sp" />
+
+                        <Button
+                            android:id="@+id/btnCloseToolbar"
+                            style="?android:attr/borderlessButtonStyle"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:layout_marginEnd="16dp"
+                            android:background="@drawable/shape_stroke_no"
+                            android:fontFamily="@font/noto_sans_light"
+                            android:gravity="center_vertical"
+                            android:minWidth="0dp"
+                            android:minHeight="0dp"
+                            android:text="@string/close_str"
+                            android:textColor="@color/colorGrayDark"
+                            android:textSize="17sp" />
+
+                    </androidx.appcompat.widget.Toolbar>
+                </com.google.android.material.appbar.AppBarLayout>
+
+                <TextView
+                    android:id="@+id/tvNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/nickname_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/appbarMypageEdit" />
+
+                <EditText
+                    android:id="@+id/etNickname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/shape_stroke_white"
+                    android:maxLength="15"
+                    android:singleLine="true"
+                    android:hint="@string/nickname_hint_str"
+                    android:padding="10dp"
+                    android:text="@{vm.myNickname}"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvNickname"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNickname" />
+
+                <TextView
+                    android:id="@+id/tvNicknameValidate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:gravity="start"
+                    android:text=""
+                    android:textStyle="bold"
+                    android:textColor="@color/colorRed"
+                    android:textSize="12sp"
+                    android:visibility="gone"
+                    app:layout_constraintEnd_toEndOf="@+id/etNickname"
+                    app:layout_constraintStart_toStartOf="@+id/etNickname"
+                    app:layout_constraintTop_toBottomOf="@+id/etNickname" />
+
+                <TextView
+                    android:id="@+id/tvProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="18dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/profile_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="@+id/etNickname"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNicknameValidate" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivProfile"
+                    android:layout_width="180dp"
+                    android:layout_height="180dp"
+                    android:layout_marginStart="120dp"
+                    android:layout_marginLeft="120dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="120dp"
+                    android:layout_marginRight="120dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/default_img_3x"
+                    app:civ_border_color="@color/colorEdge"
+                    app:civ_border_width="2dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProfile"
+                    app:setMyProfileImage="@{vm.profileImageUrl}" />
+
+                <TextView
+                    android:id="@+id/tvBirthday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/birthday_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvProfile"
+                    app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
+
+                <TextView
+                    android:id="@+id/etBirthday"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="14dp"
+                    android:background="@drawable/shape_textview"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:gravity="start"
+                    android:hint="@string/birthday_hint_str"
+                    android:padding="9dp"
+                    android:text="@{vm.myBirthDay}"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvBirthday"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBirthday" />
+
+                <TextView
+                    android:id="@+id/tvJobType"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/job_type_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvBirthday"
+                    app:layout_constraintTop_toBottomOf="@+id/etBirthday" />
+
+                <Spinner
+                    android:id="@+id/spJobType"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:entries="@{vm.jobTypeSpinnerItem}"
+                    android:padding="10dp"
+                    android:spinnerMode="dropdown"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/etNickname"
+                    app:layout_constraintStart_toStartOf="@+id/tvJobType"
+                    app:layout_constraintTop_toBottomOf="@+id/tvJobType"
+                    app:setSpinner="@{vm.myJobTypeIndex}" />
+
+
+                <TextView
+                    android:id="@+id/tvJobField"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/job_field_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/spJobType"
+                    app:layout_constraintTop_toBottomOf="@+id/spJobType" />
+
+                <Spinner
+                    android:id="@+id/spJobField"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:entries="@{vm.jobFieldSpinnerItem}"
+                    android:spinnerMode="dropdown"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/spJobType"
+                    app:layout_constraintStart_toStartOf="@+id/tvJobField"
+                    app:layout_constraintTop_toBottomOf="@+id/tvJobField"
+                    app:setSpinner="@{vm.myJobFieldIndex}" />
+
+                <TextView
+                    android:id="@+id/tvProfileGender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/gender_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="@+id/spJobField"
+                    app:layout_constraintTop_toBottomOf="@+id/spJobField" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroupProfileGender"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="@+id/spJobField"
+                    app:layout_constraintStart_toStartOf="@+id/tvProfileGender"
+                    app:layout_constraintTop_toBottomOf="@+id/tvProfileGender">
+
+
+                    <RadioButton
+                        android:id="@+id/radioButtonProfileGenderMan"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="2.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:checked="@{vm.isGenderMan ? true : false}"
+                        android:fontFamily="@font/noto_sans_bold"
+                        android:gravity="center"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="13dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="13dp"
+                        android:text="@string/gender_m_str"
+                        android:textColor="@color/radio_flat_text_selector"
+                        android:textSize="13sp" />
+
+                    <RadioButton
+                        android:id="@+id/radioButtonProfileGenderWoman"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="2.5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/radio_flat_selector"
+                        android:button="@android:color/transparent"
+                        android:checked="@{vm.isGenderWoman ? true : false}"
+                        android:fontFamily="@font/noto_sans_bold"
+                        android:gravity="center"
+                        android:paddingLeft="16dp"
+                        android:paddingTop="13dp"
+                        android:paddingRight="16dp"
+                        android:paddingBottom="13dp"
+                        android:text="@string/gender_w_str"
+                        android:textColor="@color/radio_flat_text_selector"
+                        android:textSize="13sp" />
+
+                </RadioGroup>
+
+
+                <TextView
+                    android:id="@+id/tvExperienceYears"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/experience_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvProfileGender"
+                    app:layout_constraintTop_toBottomOf="@+id/radioGroupProfileGender" />
+
+                <Spinner
+                    android:id="@+id/spExperienceYears"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:entries="@array/periodSelector"
+                    android:padding="10dp"
+                    android:spinnerMode="dropdown"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/radioGroupProfileGender"
+                    app:layout_constraintStart_toStartOf="@+id/tvExperienceYears"
+                    app:layout_constraintTop_toBottomOf="@+id/tvExperienceYears"
+                    app:setSpinner="@{vm.myExperienceIndex}" />
+
+
+                <TextView
+                    android:id="@+id/tvWorkingArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/working_area_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="@+id/spExperienceYears"
+                    app:layout_constraintTop_toBottomOf="@+id/spExperienceYears" />
+
+                <Spinner
+                    android:id="@+id/spWorkingArea"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:entries="@array/workingPlaceSelector"
+                    android:padding="10dp"
+                    android:spinnerMode="dropdown"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/spExperienceYears"
+                    app:layout_constraintStart_toStartOf="@+id/tvWorkingArea"
+                    app:layout_constraintTop_toBottomOf="@+id/tvWorkingArea"
+                    app:setSpinner="@{vm.myWorkingAreaIndex}" />
+
+                <Spinner
+                    android:id="@+id/spWorkingAreaDetail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:entries="@array/workingDetailPlaceSelector"
+                    android:padding="10dp"
+                    android:textSize="12sp"
+                    android:visibility="@{vm.myWorkingAreaIndex == 1 ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintEnd_toEndOf="@+id/spWorkingArea"
+                    app:layout_constraintStart_toStartOf="@+id/spWorkingArea"
+                    app:layout_constraintTop_toBottomOf="@+id/spWorkingArea"
+                    app:setSpinner="@{vm.myWorkingAreaDetailIndex}" />
+
+                <TextView
+                    android:id="@+id/tvBasicSalary"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/salary_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="@+id/spWorkingArea"
+                    app:layout_constraintTop_toBottomOf="@+id/spWorkingAreaDetail" />
+
+                <EditText
+                    android:id="@+id/etBasicSalary"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_textview"
+                    android:hint="@string/salary_hint_str"
+                    android:inputType="number"
+                    android:singleLine="true"
+                    android:padding="10dp"
+                    android:text="@{vm.myBasicSalary !=null ? Integer.toString(vm.myBasicSalary) : null}"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toStartOf="@+id/tvSalaryUnit"
+                    app:layout_constraintStart_toStartOf="@+id/tvBasicSalary"
+                    app:layout_constraintTop_toBottomOf="@+id/tvBasicSalary" />
+
+                <TextView
+                    android:id="@+id/tvSalaryUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@string/unit_salary_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/etBasicSalary"
+                    app:layout_constraintEnd_toEndOf="@+id/spWorkingArea"
+                    app:layout_constraintStart_toEndOf="@+id/etBasicSalary"
+                    app:layout_constraintTop_toTopOf="@+id/etBasicSalary" />
+
+
+                <TextView
+                    android:id="@+id/tvLongevity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/continuous_year_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvBasicSalary"
+                    app:layout_constraintTop_toBottomOf="@+id/etBasicSalary" />
+
+                <Spinner
+                    android:id="@+id/spLongevity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:entries="@array/continuePeriodSelector"
+                    android:padding="10dp"
+                    android:spinnerMode="dropdown"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/spExperienceYears"
+                    app:layout_constraintStart_toStartOf="@+id/tvLongevity"
+                    app:layout_constraintTop_toBottomOf="@+id/tvLongevity"
+                    app:setSpinner="@{vm.mylongevityIndex}" />
+
+
+                <TextView
+                    android:id="@+id/tvDevelopmentLanguages"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/language_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvLongevity"
+                    app:layout_constraintTop_toBottomOf="@+id/spLongevity" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDevelopmentLanguages"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                    app:layout_constraintEnd_toEndOf="@+id/spLongevity"
+                    app:layout_constraintStart_toStartOf="@+id/tvDevelopmentLanguages"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDevelopmentLanguages"
+                    app:setLanguageIdeItem="@{vm.languages}"
+                    tools:listitem="@layout/item_signup2_ide" />
+
+
+                <TextView
+                    android:id="@+id/tvDevelopmentIdes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/ide_prefer_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvDevelopmentLanguages"
+                    app:layout_constraintTop_toBottomOf="@+id/rvDevelopmentLanguages" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDevelopmentIdes"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="4dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                    app:layout_constraintEnd_toEndOf="@+id/spLongevity"
+                    app:layout_constraintStart_toStartOf="@+id/tvDevelopmentIdes"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDevelopmentIdes"
+                    app:setLanguageIdeItem="@{vm.ides}"
+                    tools:listitem="@layout/item_signup2_ide" />
+
+
+                <TextView
+                    android:id="@+id/tvGithubUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/github_url_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="@+id/rvDevelopmentIdes"
+                    app:layout_constraintTop_toBottomOf="@+id/rvDevelopmentIdes" />
+
+                <EditText
+                    android:id="@+id/etGithubUrl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_stroke_white"
+                    android:hint="@string/github_url_hint_str"
+                    android:padding="10dp"
+                    android:text="@{vm.myGithubUrl !=null ? vm.myGithubUrl : null}"
+                    android:inputType="textUri"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/rvDevelopmentIdes"
+                    app:layout_constraintStart_toStartOf="@+id/tvGithubUrl"
+                    app:layout_constraintTop_toBottomOf="@+id/tvGithubUrl" />
+
+                <TextView
+                    android:id="@+id/tvPortfolioUrl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="19dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/portfolio_url_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="17sp"
+                    app:layout_constraintStart_toStartOf="@+id/etGithubUrl"
+                    app:layout_constraintTop_toBottomOf="@+id/etGithubUrl" />
+
+                <EditText
+                    android:id="@+id/etPortfolioUrl"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/shape_stroke_white"
+                    android:hint="@string/portfolio_url_hint_str"
+                    android:padding="10dp"
+                    android:text="@{vm.myPortfolioUrl != null ? vm.myPortfolioUrl : null}"
+                    android:inputType="textUri"
+                    android:textSize="12sp"
+                    app:layout_constraintEnd_toEndOf="@+id/etGithubUrl"
+                    app:layout_constraintStart_toStartOf="@+id/tvPortfolioUrl"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPortfolioUrl" />
+
+                <CheckBox
+                    android:id="@+id/cbIsInformationOpen"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:checked="@{vm.isInformationOpen ? true : false}"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@string/information_open_is_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="@+id/etPortfolioUrl"
+                    app:layout_constraintStart_toStartOf="@+id/etPortfolioUrl"
+                    app:layout_constraintTop_toBottomOf="@+id/etPortfolioUrl" />
+
+                <CheckBox
+                    android:id="@+id/cbIsPush"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:checked="@{vm.isPushStatus ? true : false}"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@string/push_is_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="@+id/cbIsInformationOpen"
+                    app:layout_constraintStart_toStartOf="@+id/cbIsInformationOpen"
+                    app:layout_constraintTop_toBottomOf="@+id/cbIsInformationOpen" />
+
+                <Button
+                    android:id="@+id/btnModify"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@color/colorBlack"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:text="@string/modify_str"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="12sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/etPortfolioUrl"
+                    app:layout_constraintStart_toStartOf="@+id/cbIsPush"
+                    app:layout_constraintTop_toBottomOf="@+id/cbIsPush" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cameraView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <Button
+                android:id="@+id/btnCameraCapture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="30dp"
+                android:elevation="2dp"
+                android:scaleType="fitCenter"
+                android:text="Take Photo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <androidx.camera.view.PreviewView
+                android:id="@+id/viewFinder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.service.ServicesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="@{vm.isExistAuthor ? View.VISIBLE : View.GONE}"
+        tools:context=".view.service.ReportListFragment">
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/shape_textview"
+            android:fontFamily="@font/noto_sans_medium"
+            android:hint="@string/search_hint_str"
+            android:padding="10dp"
+            android:textSize="13sp"
+            app:layout_constraintEnd_toStartOf="@+id/btnSearch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@color/colorBlack"
+            android:fontFamily="@font/noto_sans_bold"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="8dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="8dp"
+            android:text="@string/search_str"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/etSearch"
+            app:layout_constraintTop_toTopOf="@+id/etSearch" />
+
+        <TextView
+            android:id="@+id/tvReportCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:fontFamily="@font/noto_sans_cjkkr_regular"
+            android:text="@{Integer.toString(vm.servicesPostCount)}"
+            tools:text="@string/num_symbol_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintStart_toStartOf="@+id/etSearch"
+            app:layout_constraintTop_toBottomOf="@+id/etSearch" />
+
+        <TextView
+            android:id="@+id/tvPostUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/noto_sans_cjkkr_regular"
+            android:text="@string/unit_post_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvReportCount"
+            app:layout_constraintStart_toEndOf="@+id/tvReportCount"
+            app:layout_constraintTop_toTopOf="@+id/tvReportCount" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:visibility="@{vm.isExistData ? View.VISIBLE : View.GONE}"
+            android:id="@+id/rvList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/shape_stroke_top"
+            android:orientation="vertical"
+            android:scrollbarFadeDuration="0"
+            android:scrollbarSize="5dp"
+            android:scrollbarThumbVertical="@android:color/darker_gray"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvReportCount"
+            tools:listitem="@layout/item_frag_report_list"
+            app:setServicesPost="@{vm.servicesPosts}"/>
+        <TextView
+            android:visibility="@{vm.isExistData ? View.GONE : View.VISIBLE}"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            android:background="@drawable/shape_stroke_top"
+            android:text="@string/nothing_report_str"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvReportCount"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

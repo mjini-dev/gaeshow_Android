@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigationWorkspace">
+
+    <fragment
+        android:id="@+id/navigationHome"
+        android:name="com.devup.android_shopping_mall.view.home.HomeFragment"
+        android:label="@string/navi_home_str"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_navigationHome_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationStore"
+        android:name="com.devup.android_shopping_mall.view.store.StoreFragment"
+        android:label="@string/navi_store_str"
+        tools:layout="@layout/fragment_store" />
+
+    <fragment
+        android:id="@+id/navigationSearch"
+        android:name="com.devup.android_shopping_mall.view.search.SearchFragment"
+        android:label="@string/navi_search_str"
+        tools:layout="@layout/fragment_search">
+        <action
+            android:id="@+id/action_navigationSearch_to_boardViewFragment"
+            app:destination="@id/boardViewFragment" />
+        <action
+            android:id="@+id/action_navigationSearch_to_workspaceViewFragment"
+            app:destination="@id/workspaceViewFragment" />
+        <action
+            android:id="@+id/action_navigationSearch_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationMore"
+        android:name="com.devup.android_shopping_mall.view.mypage.MoreFragment"
+        android:label="@string/navi_more_str"
+        tools:layout="@layout/fragment_more">
+
+        <action
+            android:id="@+id/action_navigationMore_to_userPageFragment"
+            app:destination="@id/userPageFragment" />
+        <action
+            android:id="@+id/action_navigationMore_to_bookmarkFragment"
+            app:destination="@id/bookmarkFragment" />
+
+        <action
+            android:id="@+id/action_navigationMore_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+
+    </fragment>
+
+    <!-- 마이페이지, 회원 활동 페이지-->
+    <fragment
+        android:id="@+id/userPageFragment"
+        android:name="com.devup.android_shopping_mall.view.mypage.UserPageFragment"
+        android:label="UserPageFragment">
+
+        <action
+            android:id="@+id/action_userPageFragment_to_navigationMore"
+            app:destination="@id/navigationMore" />
+        <action
+            android:id="@+id/action_userPageFragment_to_usersMorePostFragment"
+            app:destination="@id/usersMorePostFragment" />
+        <action
+            android:id="@+id/action_userPageFragment_to_boardViewFragment"
+            app:destination="@id/boardViewFragment" />
+        <action
+            android:id="@+id/action_userPageFragment_to_workspaceViewFragment"
+            app:destination="@id/workspaceViewFragment" />
+        <action
+            android:id="@+id/action_userPageFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+
+    <!--북마크 목록-->
+    <fragment
+        android:id="@+id/bookmarkFragment"
+        android:name="com.devup.android_shopping_mall.view.mypage.BookmarkFragment"
+        android:label="BookmarkFragment">
+        <action
+            android:id="@+id/action_bookmarkFragment_to_usersMorePostFragment"
+            app:destination="@id/usersMorePostFragment" />
+        <action
+            android:id="@+id/action_bookmarkFragment_to_navigationMore"
+            app:destination="@id/navigationMore" />
+        <action
+            android:id="@+id/action_bookmarkFragment_to_boardViewFragment"
+            app:destination="@id/boardViewFragment" />
+        <action
+            android:id="@+id/action_bookmarkFragment_to_workspaceViewFragment"
+            app:destination="@id/workspaceViewFragment" />
+    </fragment>
+
+    <!--유저 작성게시글 & 북마크 게시글 더보기  -->
+    <fragment
+        android:id="@+id/usersMorePostFragment"
+        android:name="com.devup.android_shopping_mall.view.mypage.UsersMorePostFragment"
+        android:label="UsersMorePostFragment">
+
+        <action
+            android:id="@+id/action_usersMorePostFragment_to_boardViewFragment"
+            app:destination="@id/boardViewFragment" />
+        <action
+            android:id="@+id/action_usersMorePostFragment_to_workspaceViewFragment"
+            app:destination="@id/workspaceViewFragment" />
+    </fragment>
+
+
+    <!-- 워크스페이스공유-->
+    <fragment
+        android:id="@+id/navigationWorkspace"
+        android:name="com.devup.android_shopping_mall.view.community.workspace.WorkspaceListFragment"
+        android:label="@string/navi_community_str"
+        tools:layout="@layout/fragment_workspace_list">
+        <action
+            android:id="@+id/action_navigationWorkspace_to_workspaceViewFragment"
+            app:destination="@id/workspaceViewFragment" />
+        <action
+            android:id="@+id/action_navigationWorkspace_to_workspaceWriteFragment"
+            app:destination="@id/workspaceWriteFragment" />
+        <action
+            android:id="@+id/action_navigationWorkspace_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+
+    <!-- 워크스페이스상세-->
+    <fragment
+        android:id="@+id/workspaceViewFragment"
+        android:name="com.devup.android_shopping_mall.view.community.workspace.WorkspaceDetailFragment"
+        android:label="@string/navi_community_str"
+        tools:layout="@layout/fragment_workspace_detail">
+        <action
+            android:id="@+id/action_workspaceViewFragment_to_navigationWorkspace"
+            app:destination="@id/navigationWorkspace" />
+        <action
+            android:id="@+id/action_workspaceViewFragment_to_workspaceViewFragment"
+            app:destination="@id/workspaceViewFragment" />
+        <action
+            android:id="@+id/action_workspaceViewFragment_to_usersMorePostFragment"
+            app:destination="@id/usersMorePostFragment" />
+        <action
+            android:id="@+id/action_workspaceViewFragment_to_userPageFragment"
+            app:destination="@id/userPageFragment" />
+        <action
+            android:id="@+id/action_workspaceViewFragment_to_bookmarkFragment"
+            app:destination="@id/bookmarkFragment" />
+        <action
+            android:id="@+id/action_workspaceViewFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+
+    <!-- 워크스페이스 글쓰기-->
+    <fragment
+        android:id="@+id/workspaceWriteFragment"
+        android:name="com.devup.android_shopping_mall.view.community.workspace.WorkspaceWriteFragment"
+        android:label="@string/navi_workspace_add_str"
+        tools:layout="@layout/fragment_workspace_write">
+        <action
+            android:id="@+id/action_workspaceWriteFragment_to_workspaceViewFragment"
+            app:destination="@id/workspaceViewFragment" />
+    </fragment>
+
+
+    <!--연봉보기-->
+    <fragment
+        android:id="@+id/navigationSalary"
+        android:name="com.devup.android_shopping_mall.view.community.SalaryFragment"
+        android:label="@string/navi_community_str"
+        tools:layout="@layout/fragment_salary">
+        <action
+            android:id="@+id/action_navigationSalary_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+        <action
+            android:id="@+id/action_navigationSalary_to_navigationWorkspace"
+            app:destination="@id/navigationWorkspace" />
+    </fragment>
+
+    <!-- 작업물자랑 목록-->
+    <fragment
+        android:id="@+id/navigationPortfolio"
+        android:name="com.devup.android_shopping_mall.view.community.portfolio.PortfolioListFragment"
+        android:label="@string/navi_community_str"
+        tools:layout="@layout/fragment_portfolio">
+        <action
+            android:id="@+id/action_navigationPortfolio_to_boardViewFragment"
+            app:destination="@id/boardViewFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigationPortfolio_to_portfolioWriteFragment"
+            app:destination="@id/portfolioWriteFragment" />
+        <action
+            android:id="@+id/action_navigationPortfolio_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+
+    <!-- 작업물자랑 글쓰기-->
+    <fragment
+        android:id="@+id/portfolioWriteFragment"
+        android:name="com.devup.android_shopping_mall.view.community.portfolio.PortfolioWriteFragment"
+        android:label="@string/navi_post_add_str"
+        tools:layout="@layout/fragment_portfolio_write">
+        <action
+            android:id="@+id/action_portfolioWriteFragment_to_boardViewFragment"
+            app:destination="@id/boardViewFragment" />
+    </fragment>
+
+
+    <!--게시글 목록-->
+    <fragment
+        android:id="@+id/navigationBoard"
+        android:name="com.devup.android_shopping_mall.view.community.board.BoardFragment"
+        android:label="@string/navi_community_str"
+        tools:layout="@layout/fragment_board">
+        <action
+            android:id="@+id/action_navigationBoard_to_boardViewFragment"
+            app:destination="@id/boardViewFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_navigationBoard_to_boardWriteFragment"
+            app:destination="@id/boardWriteFragment" />
+        <action
+            android:id="@+id/action_navigationBoard_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+
+    </fragment>
+
+    <!--게시글 상세보기-->
+    <fragment
+        android:id="@+id/boardViewFragment"
+        android:name="com.devup.android_shopping_mall.view.community.board.BoardDetailsFragment"
+        android:label="@string/navi_community_str"
+        tools:layout="@layout/fragment_board_details">
+        <action
+            android:id="@+id/action_boardViewFragment_to_navigationBoard"
+            app:destination="@id/navigationBoard"
+            app:popUpTo="@id/boardViewFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_boardViewFragment_to_navigationBadmouse"
+            app:destination="@id/navigationBadmouse"
+            app:popUpTo="@id/boardViewFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_boardViewFragment_to_navigationPortfolio"
+            app:destination="@id/navigationPortfolio"
+            app:popUpTo="@id/boardViewFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_boardViewFragment_to_navigationTips"
+            app:destination="@id/navigationTips"
+            app:popUpTo="@id/boardViewFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_boardViewFragment_to_boardWriteFragment"
+            app:destination="@id/boardWriteFragment" />
+        <action
+            android:id="@+id/action_boardViewFragment_to_portfolioWriteFragment"
+            app:destination="@id/portfolioWriteFragment" />
+        <action
+            android:id="@+id/action_boardViewFragment_to_usersMorePostFragment"
+            app:destination="@id/usersMorePostFragment" />
+        <action
+            android:id="@+id/action_boardViewFragment_to_userPageFragment"
+            app:destination="@id/userPageFragment" />
+        <action
+            android:id="@+id/action_boardViewFragment_to_bookmarkFragment"
+            app:destination="@id/bookmarkFragment" />
+        <action
+            android:id="@+id/action_boardViewFragment_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+
+    <!--게시글 글쓰기-->
+    <fragment
+        android:id="@+id/boardWriteFragment"
+        android:name="com.devup.android_shopping_mall.view.community.board.BoardWriteFragment"
+        android:label="@string/navi_post_add_str"
+        tools:layout="@layout/fragment_board_write">
+        <action
+            android:id="@+id/action_boardWriteFragment_to_boardViewFragment"
+            app:destination="@id/boardViewFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+
+    <!--회사욕하기-->
+    <fragment
+        android:id="@+id/navigationBadmouse"
+        android:name="com.devup.android_shopping_mall.view.community.badmouse.BadMouseFragment"
+        android:label="@string/navi_community_str"
+        tools:layout="@layout/fragment_badmouse">
+
+        <action
+            android:id="@+id/action_navigationBadmouse_to_boardViewFragment"
+            app:destination="@id/boardViewFragment" />
+
+        <action
+            android:id="@+id/action_navigationBadmouse_to_boardWriteFragment"
+            app:destination="@id/boardWriteFragment" />
+        <action
+            android:id="@+id/action_navigationBadmouse_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+
+
+    <!--   프리랜서팁-->
+    <fragment
+        android:id="@+id/navigationTips"
+        android:name="com.devup.android_shopping_mall.view.community.tips.TipsFragment"
+        android:label="@string/navi_community_str"
+        tools:layout="@layout/fragment_tips">
+        <action
+            android:id="@+id/action_navigationTips_to_boardViewFragment"
+            app:destination="@id/boardViewFragment" />
+        <action
+            android:id="@+id/action_navigationTips_to_boardWriteFragment"
+            app:destination="@id/boardWriteFragment" />
+        <action
+            android:id="@+id/action_navigationTips_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+
+
+    <!-- ide추천-->
+    <fragment
+        android:id="@+id/navigationIde"
+        android:name="com.devup.android_shopping_mall.view.community.ide.IdeFragment"
+        android:label="@string/navi_ide_str"
+        tools:layout="@layout/fragment_ide">
+        <action
+            android:id="@+id/action_navigation_ide_to_ideRecommendViewFragment"
+            app:destination="@id/ideRecommendViewFragment" />
+        <action
+            android:id="@+id/action_navigationIde_to_notificationsFragment"
+            app:destination="@id/notificationsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ideRecommendViewFragment"
+        android:name="com.devup.android_shopping_mall.view.community.ide.IdeRecommendViewFragment"
+        android:label="@string/navi_ide_str"
+        tools:layout="@layout/fragment_ide_recommend_view">
+        <action
+            android:id="@+id/action_ideRecommendViewFragment_to_ideRecommendWriteFragment"
+            app:destination="@id/ideRecommendWriteFragment" />
+        <action
+            android:id="@+id/action_ideRecommendViewFragment_to_navigationIde"
+            app:destination="@id/navigationIde" />
+        <action
+            android:id="@+id/action_ideRecommendViewFragment_to_userPageFragment"
+            app:destination="@id/userPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ideRecommendWriteFragment"
+        android:name="com.devup.android_shopping_mall.view.community.ide.IdeRecommendWriteFragment"
+        android:label=""
+        tools:layout="@layout/fragment_ide_recommend_write">
+        <action
+            android:id="@+id/action_ideRecommendWriteFragment_to_ideRecommendViewFragment"
+            app:destination="@id/ideRecommendViewFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <!-- 커뮤니티 검색-->
+    <fragment
+        android:id="@+id/navigationCommunitySearch"
+        android:name="com.devup.android_shopping_mall.view.community.CommunityMenuSearchFragment"
+        android:label="@string/navi_search_str"
+        tools:layout="@layout/fragment_community_menu_search">
+
+    </fragment>
+
+    <!-- 알림-->
+    <fragment
+        android:id="@+id/notificationsFragment"
+        android:name="com.devup.android_shopping_mall.view.home.NotificationsFragment"
+        android:label="NotificationsFragment">
+        <action
+            android:id="@+id/action_notificationsFragment_to_boardViewFragment"
+            app:destination="@id/boardViewFragment" />
+        <action
+            android:id="@+id/action_notificationsFragment_to_workspaceViewFragment"
+            app:destination="@id/workspaceViewFragment" />
+    </fragment>
+
+</navigation>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.devup.android_shopping_mall">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-feature android:name="android.hardware.camera.any" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <application
+        android:name=".GlobalApp"
+        android:allowBackup="true"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_main"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:roundIcon="@mipmap/ic_main_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="q"
+        android:requestLegacyExternalStorage="true">
+
+        <activity
+            android:name=".view.mypage.ChangePasswordActivity"
+            android:windowSoftInputMode="adjustResize" />
+
+        <!-- 카카오 로그인 Redirect URI 설정 -->
+        <activity android:name="com.kakao.sdk.auth.AuthCodeHandlerActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="oauth"
+                    android:scheme="kakaoa53b7c931a7b7f217e75a7e448abeafa" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".view.service.ReportWriteActivity" />
+        <activity android:name=".view.comment.CommentModifyActivity" />
+        <activity android:name=".view.service.QuestionDetailActivity" />
+        <activity android:name=".view.service.QuestionWriteActivity" />
+        <activity android:name=".view.comment.CommentDepthActivity" />
+        <activity android:name=".view.loading.AppLoadingActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.devup.android_shopping_mall.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".view.search.ResultActivity" />
+        <activity android:name=".view.mypage.MypageEditActivity" />
+        <activity android:name=".view.community.workspace.WorkspaceProductTagSearchActivity" />
+        <activity android:name=".view.community.workspace.WorkspaceProductTagActivity" />
+        <activity android:name=".view.store.StoreDataLabActivity" />
+        <activity android:name=".view.store.StoreQnaListActivity" />
+        <activity android:name=".view.store.StorePostUpUserReviewActivity" />
+        <activity android:name=".view.store.StorePostUpQnaActivity" />
+        <activity android:name=".view.store.StorePostUpExpectationReviewActivity" />
+        <activity android:name=".view.store.StoreUserReviewActivity" />
+        <activity android:name=".view.store.StoreExpectationReviewListActivity" />
+        <activity android:name=".view.store.StoreProductActivity" />
+        <activity android:name=".view.service.CustomerServiceActivity" />
+        <activity android:name=".view.join.SignupStep02Activity" />
+        <activity android:name=".view.join.SignupStep01Activity" />
+        <activity android:name=".view.terms.TermsActivity" />
+        <activity android:name=".view.login.LoginActivity" />
+        <activity android:name=".view.home.MainActivity" />
+    </application>
+
+</manifest>

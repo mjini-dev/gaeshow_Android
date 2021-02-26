@@ -1,0 +1,382 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="comment"
+            type="com.devup.android_shopping_mall.data.comments.model.Comment" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.devup.android_shopping_mall.view.comment.BoardCommentAdapter.PostItemClickListener" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.community.viewmodel.BoardDetailsViewModel" />
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/deletedComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="@{comment.profile_nickname!=null?View.GONE:View.VISIBLE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/tvDeletedComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:fontFamily="@font/noto_sans_cjkkr_regular"
+                    android:gravity="start"
+                    android:text="@string/deleted_comment_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/vCommentDelete"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorGrayLight"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDeletedComment" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/existComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="@{comment.profile_nickname!=null?View.VISIBLE:View.GONE}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/deletedComment">
+
+                <TextView
+                    android:id="@+id/tvContent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="16dp"
+                    android:fontFamily="@font/noto_sans_cjkkr_regular"
+                    android:gravity="start"
+                    android:text="@{comment.content}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toTopOf="@+id/tvDate"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed"
+                    tools:text="@string/content_str" />
+
+                <TextView
+                    android:id="@+id/tvDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_cjkkr_light"
+                    android:text="@{comment.date}"
+                    android:textColor="@color/colorGray"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toTopOf="@+id/ivProfileImage"
+                    app:layout_constraintStart_toStartOf="@+id/tvContent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvContent"
+                    tools:text="@string/created_at_str" />
+
+                <ImageView
+                    android:id="@+id/ivLiked"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_marginEnd="2dp"
+                    android:background="@{comment.rating_id != 0 ? @drawable/ic_like_clicked_3x : @drawable/ic_like_df_3x}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvLikedCount"
+                    app:layout_constraintEnd_toStartOf="@+id/tvLikedCount"
+                    app:layout_constraintTop_toTopOf="@+id/tvDate"
+                    app:onPostItemClickListener="@{()->clickListener.onRatingClick(position)}" />
+
+                <TextView
+                    android:id="@+id/tvLikedCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@{Integer.toString(comment.liked)}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="11sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivLiked"
+                    app:layout_constraintEnd_toEndOf="@+id/tvContent"
+                    app:layout_constraintTop_toTopOf="@+id/ivLiked"
+                    tools:text="@string/star_str" />
+
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/ivProfileImage"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginBottom="36dp"
+                    android:src="@drawable/default_img_3x"
+                    app:layout_constraintBottom_toTopOf="@+id/vComment"
+                    app:layout_constraintEnd_toStartOf="@+id/tvNickname"
+                    app:layout_constraintStart_toStartOf="@+id/tvDate"
+                    app:layout_constraintTop_toBottomOf="@+id/tvDate"
+                    app:setProfileImage="@{comment.profile_image_url}" />
+
+                <TextView
+                    android:id="@+id/tvNickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="7dp"
+                    android:fontFamily="@font/noto_sans_medium"
+                    android:text="@{comment.profile_nickname}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/ivProfileImage"
+                    app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
+                    app:layout_constraintTop_toTopOf="@+id/ivProfileImage"
+                    tools:text="@string/nickname_str" />
+
+                <TextView
+                    android:id="@+id/tvParenthesesOpen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@string/parentheses_open_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13sp"
+                    android:visibility="@{comment.job_type != null || comment.job_field != null || comment.experience_years != null ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintStart_toStartOf="@+id/tvNickname"
+                    app:layout_constraintTop_toBottomOf="@+id/tvNickname" />
+
+                <TextView
+                    android:id="@+id/tvJobField"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@{comment.job_type}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvParenthesesOpen"
+                    app:layout_constraintStart_toEndOf="@+id/tvParenthesesOpen"
+                    app:layout_constraintTop_toTopOf="@+id/tvParenthesesOpen"
+                    app:layout_constraintVertical_bias="0.0"
+                    tools:text="@string/job_type_str" />
+
+                <TextView
+                    android:id="@+id/tvSlash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginLeft="3dp"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@string/slash_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13sp"
+                    android:visibility="@{comment.job_type == null || comment.job_field == null? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvJobField"
+                    app:layout_constraintStart_toEndOf="@+id/tvJobField"
+                    app:layout_constraintTop_toTopOf="@+id/tvJobField" />
+
+                <TextView
+                    android:id="@+id/tvExperienceYears"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@{comment.job_field}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvParenthesesOpen"
+                    app:layout_constraintStart_toEndOf="@+id/tvSlash"
+                    app:layout_constraintTop_toTopOf="@+id/tvParenthesesOpen"
+                    tools:text="@string/job_field_str" />
+
+                <TextView
+                    android:id="@+id/tvSlash2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@string/slash_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13sp"
+                    android:visibility="@{comment.job_type == null || comment.experience_years == null? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvParenthesesOpen"
+                    app:layout_constraintStart_toEndOf="@+id/tvExperienceYears"
+                    app:layout_constraintTop_toTopOf="@+id/tvParenthesesOpen" />
+
+                <TextView
+                    android:id="@+id/tvWorkingArea"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@{comment.experience_years}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvParenthesesOpen"
+                    app:layout_constraintStart_toEndOf="@+id/tvSlash2"
+                    app:layout_constraintTop_toTopOf="@+id/tvParenthesesOpen"
+                    tools:text="@string/experience_str" />
+
+                <TextView
+                    android:id="@+id/tvParenthesesClose"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:text="@string/parentheses_close_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="13sp"
+                    android:visibility="@{comment.job_type != null || comment.job_field != null || comment.experience_years != null ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvParenthesesOpen"
+                    app:layout_constraintStart_toEndOf="@+id/tvWorkingArea"
+                    app:layout_constraintTop_toTopOf="@+id/tvParenthesesOpen" />
+
+                <Button
+                    android:id="@+id/btnCommentAdd"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/shape_stroke_no"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/post_up_comment_str"
+                    android:textColor="@color/colorGray"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/tvNickname"
+                    app:layout_constraintEnd_toStartOf="@+id/btnReportComment"
+                    app:layout_constraintTop_toTopOf="@+id/tvNickname"
+                    app:onPostItemClickListener="@{()->clickListener.onPostItemClick(position)}" />
+
+                <Button
+                    android:id="@+id/btnReportComment"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/shape_stroke_no"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/report_str"
+                    android:textColor="@color/colorGray"
+                    android:textSize="14sp"
+                    android:visibility="@{comment.isCommentAuthor ? View.GONE : View.VISIBLE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnCommentAdd"
+                    app:layout_constraintEnd_toStartOf="@+id/btnModifyComment"
+                    app:layout_constraintTop_toTopOf="@+id/btnCommentAdd"
+                    app:onPostItemClickListener="@{()->clickListener.onReportClick(comment.comment_id)}" />
+
+                <Button
+                    android:id="@+id/btnModifyComment"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/shape_stroke_no"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/modify_str"
+                    android:textColor="@color/colorGray"
+                    android:textSize="14sp"
+                    android:visibility="@{comment.isCommentAuthor ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnCommentAdd"
+                    app:layout_constraintEnd_toStartOf="@+id/btnDeleteComment"
+                    app:layout_constraintTop_toTopOf="@+id/btnCommentAdd"
+                    app:onPostItemClickListener="@{()->clickListener.onModifyClick(position)}" />
+
+                <Button
+                    android:id="@+id/btnDeleteComment"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/shape_stroke_no"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:minWidth="0dp"
+                    android:minHeight="0dp"
+                    android:text="@string/deleting_str"
+                    android:textColor="@color/colorGray"
+                    android:textSize="14sp"
+                    android:visibility="@{comment.isCommentAuthor ? View.VISIBLE : View.GONE}"
+                    app:layout_constraintBottom_toBottomOf="@+id/btnCommentAdd"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/btnCommentAdd"
+                    app:onPostItemClickListener="@{()->clickListener.onDeleteClick(comment.comment_id)}" />
+
+                <View
+                    android:id="@+id/vComment"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="8dp"
+                    android:background="@color/colorGrayLight"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvJobField" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/commentDepthList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/existComment">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvCommentDepthList"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_stroke_bottom"
+                    android:nestedScrollingEnabled="false"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:position="@{comment.comment_id}"
+                    app:setBoardCommentDepth="@{comment.comments}"
+                    app:vm="@{vm}"
+                    tools:listitem="@layout/item_comments_depth" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.store.StorePostUpQnaActivity">
+
+    <ImageView
+        android:id="@+id/ivProductImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="27dp"
+        android:layout_marginLeft="27dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/noto_sans_medium"
+        android:maxLines="1"
+        android:text="@string/title_str"
+        android:textColor="@color/colorBlack"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivProductImage"
+        app:layout_constraintTop_toTopOf="@+id/ivProductImage" />
+
+    <TextView
+        android:id="@+id/tvWonSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/won_symbol_str"
+        android:textColor="@color/colorBlack"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/tvPrice"
+        app:layout_constraintStart_toStartOf="@+id/tvTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+    <TextView
+        android:id="@+id/tvPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/price_str"
+        android:textColor="@color/colorBlack"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvWonSymbol"
+        app:layout_constraintEnd_toStartOf="@+id/tvFromSymbol"
+        app:layout_constraintStart_toEndOf="@+id/tvWonSymbol"
+        app:layout_constraintTop_toTopOf="@+id/tvWonSymbol" />
+
+    <TextView
+        android:id="@+id/tvFromSymbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginLeft="1dp"
+        android:fontFamily="@font/noto_sans_bold"
+        android:text="@string/from_symbol_str"
+        android:textColor="@color/colorBlack"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPrice"
+        app:layout_constraintStart_toEndOf="@+id/tvPrice"
+        app:layout_constraintTop_toTopOf="@+id/tvPrice" />
+
+
+    <EditText
+        android:id="@+id/etQnaAdd"
+        android:layout_width="0dp"
+        android:layout_height="240dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/shape_stroke_black"
+        android:ems="10"
+        android:fontFamily="@font/noto_sans_medium"
+        android:gravity="start|top"
+        android:hint="@string/post_up_qna_hint_str"
+        android:inputType="textMultiLine"
+        android:padding="15dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/ivProductImage"
+        app:layout_constraintTop_toBottomOf="@+id/ivProductImage" />
+
+    <Button
+        android:id="@+id/btnQnaAdd"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@color/colorBlack"
+        android:fontFamily="@font/noto_sans_medium"
+        android:text="@string/post_up_qna_register_str"
+        android:textColor="@color/colorWhite"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="@+id/etQnaAdd"
+        app:layout_constraintStart_toStartOf="@+id/etQnaAdd"
+        app:layout_constraintTop_toBottomOf="@+id/etQnaAdd" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

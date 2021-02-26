@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.join.SignupViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            tools:context=".view.join.SignupIdeDirectFragment">
+
+            <TextView
+                android:id="@+id/tvIdeSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/ide_select_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etIdeSelect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_textview"
+                android:hint="@string/ide_select_hint_str"
+                android:padding="13dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnRegister"
+                app:layout_constraintStart_toStartOf="@+id/tvIdeSelect"
+                app:layout_constraintTop_toBottomOf="@+id/tvIdeSelect" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorBlack"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/register_str"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etIdeSelect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etIdeSelect"
+                app:layout_constraintTop_toTopOf="@+id/etIdeSelect" />
+
+            <Button
+                android:id="@+id/btnSearchInput"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_stroke_no"
+                android:fontFamily="@font/noto_sans_bold"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/search_input_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/btnRegister"
+                app:layout_constraintTop_toBottomOf="@+id/etIdeSelect" />
+
+            <View
+                android:id="@+id/vIdeSelect"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintStart_toStartOf="@+id/etIdeSelect"
+                app:layout_constraintTop_toBottomOf="@+id/btnSearchInput" />
+
+            <TextView
+                android:id="@+id/tvSelectedIde"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@string/selected_ide_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/vIdeSelect"
+                app:layout_constraintTop_toBottomOf="@+id/vIdeSelect" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSelectedIde"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:orientation="horizontal"
+                app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvSelectedIde"
+                app:layout_constraintTop_toBottomOf="@+id/tvSelectedIde"
+                app:setSearch="@{vm.ides}"
+                tools:listitem="@layout/item_signup2_language_search" />
+
+            <View
+                android:id="@+id/vSelectedIde"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintStart_toStartOf="@+id/rvSelectedIde"
+                app:layout_constraintTop_toBottomOf="@+id/rvSelectedIde" />
+
+            <Button
+                android:id="@+id/btnSelectComplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@color/colorBlack"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@string/select_complete_str"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/vSelectedIde"
+                app:layout_constraintTop_toBottomOf="@+id/vSelectedIde" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

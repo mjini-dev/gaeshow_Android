@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.community.viewmodel.BoardWriteViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:id="@+id/svPost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".view.community.portfolio.PortfolioWriteFragment">
+
+                <TextView
+                    android:id="@+id/tvPortfolioWrite"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/portfolio_write_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <View
+                    android:id="@+id/vPortfolioWrite"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="16dp"
+                    android:background="@color/colorWhite"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvPortfolioWrite" />
+
+                <TextView
+                    android:id="@+id/tvTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/title_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/tvPortfolioWrite"
+                    app:layout_constraintTop_toBottomOf="@+id/vPortfolioWrite" />
+
+
+                <EditText
+                    android:id="@+id/etTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="14dp"
+                    android:background="@drawable/shape_textview"
+                    android:fontFamily="sans-serif-light"
+                    android:hint="@string/title_hint_str"
+                    android:padding="9dp"
+                    android:text="@{vm.isPostModify ? vm.postDetails.title : @string/empty_str}"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+
+                <TextView
+                    android:id="@+id/tvRelreaseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/relrease_date_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/etTitle"
+                    app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+
+                <TextView
+                    android:id="@+id/etRelreaseDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="11dp"
+                    android:layout_marginEnd="14dp"
+                    android:background="@drawable/shape_textview"
+                    android:fontFamily="@font/noto_sans_light"
+                    android:gravity="start"
+                    android:hint="@string/relrease_date_hint_str"
+                    android:padding="9dp"
+                    android:text="@{vm.isPostModify ? vm.postDetails.release_date : null}"
+                    android:textSize="13sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvRelreaseDate"
+                    app:layout_constraintTop_toBottomOf="@+id/tvRelreaseDate" />
+
+                <TextView
+                    android:id="@+id/tvContent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/content_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="@+id/etRelreaseDate"
+                    app:layout_constraintTop_toBottomOf="@+id/etRelreaseDate" />
+
+
+                <HorizontalScrollView
+                    android:id="@+id/editorMenu"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="14dp"
+                    android:background="@android:color/black"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="@+id/tvContent"
+                    app:layout_constraintTop_toBottomOf="@+id/tvContent">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+
+                        <ImageButton
+                            android:id="@+id/action_bold"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/bold" />
+
+                        <ImageButton
+                            android:id="@+id/action_italic"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/italic" />
+
+
+                        <ImageButton
+                            android:id="@+id/action_strikethrough"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/strikethrough" />
+
+                        <ImageButton
+                            android:id="@+id/action_underline"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/underline" />
+
+
+                        <ImageButton
+                            android:id="@+id/action_txt_color"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/txt_color" />
+
+                        <ImageButton
+                            android:id="@+id/action_bg_color"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/bg_color" />
+
+
+                        <ImageButton
+                            android:id="@+id/action_insert_image"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@null"
+                            android:contentDescription="@null"
+                            android:src="@drawable/insert_image" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <jp.wasabeef.richeditor.RichEditor
+                    android:id="@+id/editorContent"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@color/colorWhite"
+                    android:gravity="start"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toTopOf="@+id/vContent"
+                    app:layout_constraintEnd_toEndOf="@+id/etTitle"
+                    app:layout_constraintStart_toStartOf="@+id/tvContent"
+                    app:layout_constraintTop_toBottomOf="@+id/editorMenu"
+                    app:setContent="@{vm.isPostModify ? vm.postDetails.content : @string/empty_str}" />
+
+                <View
+                    android:id="@+id/vContent"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/colorWhite"
+                    app:layout_constraintBottom_toTopOf="@+id/tvTaggingPlatform"
+                    app:layout_constraintEnd_toEndOf="@+id/editorContent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toStartOf="@+id/editorContent"
+                    app:layout_constraintTop_toBottomOf="@+id/editorContent" />
+
+                <TextView
+                    android:id="@+id/tvTaggingPlatform"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/tag_platform_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/rvTagPlatform"
+                    app:layout_constraintStart_toStartOf="@+id/tvContent"
+                    app:layout_constraintTop_toBottomOf="@+id/vContent" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTagPlatform"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                    app:layout_constraintBottom_toTopOf="@+id/tvTaggingLanguage"
+                    app:layout_constraintEnd_toEndOf="@+id/vContent"
+                    app:layout_constraintStart_toStartOf="@+id/tvTaggingPlatform"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTaggingPlatform"
+                    app:setTagAddItem="@{vm.platformTags}"
+                    tools:listitem="@layout/item_add_tag_board" />
+
+
+                <TextView
+                    android:id="@+id/tvTaggingLanguage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/tag_language_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/rvTagLanguage"
+                    app:layout_constraintStart_toStartOf="@+id/tvTaggingPlatform"
+                    app:layout_constraintTop_toBottomOf="@+id/rvTagPlatform" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTagLanguage"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                    app:layout_constraintBottom_toTopOf="@+id/tvTaggingIde"
+                    app:layout_constraintEnd_toEndOf="@+id/vContent"
+                    app:layout_constraintStart_toStartOf="@+id/tvTaggingLanguage"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTaggingLanguage"
+                    app:setTagAddItem="@{vm.languageTags}"
+                    tools:listitem="@layout/item_add_tag_board" />
+
+
+                <TextView
+                    android:id="@+id/tvTaggingIde"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="sans-serif-black"
+                    android:text="@string/tag_ide_str"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toTopOf="@+id/rvTagIde"
+                    app:layout_constraintStart_toStartOf="@+id/tvTaggingLanguage"
+                    app:layout_constraintTop_toBottomOf="@+id/rvTagLanguage" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvTagIde"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="32dp"
+                    android:orientation="horizontal"
+                    app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                    app:layout_constraintBottom_toTopOf="@+id/btnAddPost"
+                    app:layout_constraintEnd_toEndOf="@+id/vContent"
+                    app:layout_constraintStart_toStartOf="@+id/tvTaggingIde"
+                    app:layout_constraintTop_toBottomOf="@+id/tvTaggingIde"
+                    app:setTagAddItem="@{vm.ideTags}"
+                    tools:listitem="@layout/item_add_tag_board" />
+
+
+                <Button
+                    android:id="@+id/btnAddPost"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/colorBlack"
+                    android:fontFamily="sans-serif-medium"
+                    android:minHeight="0dp"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
+                    android:text="@{vm.isPostModify ? @string/modify_str : @string/post_up_str}"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cameraView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/btnCameraCapture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="30dp"
+                android:elevation="2dp"
+                android:scaleType="fitCenter"
+                android:text="Take Photo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <androidx.camera.view.PreviewView
+                android:id="@+id/viewFinder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

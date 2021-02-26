@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.store.StorePostUpUserReviewActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".view.store.StorePostUpUserReviewActivity">
+
+        <TextView
+            android:id="@+id/tvProductRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/product_rating_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="20dp" />
+
+        <TextView
+            android:id="@+id/tvProductRatingInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/product_rating_info_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/tvProductRating"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductRating" />
+
+        <RatingBar
+            android:id="@+id/ratingBarRatingBar"
+            style="?android:attr/ratingBarStyleIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:isIndicator="false"
+            android:max="5"
+            android:numStars="5"
+            android:progressBackgroundTint="@color/colorGrayLight"
+            android:progressTint="@color/color_pink_rating"
+            android:stepSize="0.5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProductRatingInfo" />
+
+        <TextView
+            android:id="@+id/tvSelect"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:fontFamily="@font/noto_sans_cjkkr_light"
+            android:text="@string/select_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@+id/ratingBarRatingBar"
+            app:layout_constraintStart_toStartOf="@+id/ratingBarRatingBar"
+            app:layout_constraintTop_toBottomOf="@+id/ratingBarRatingBar" />
+
+        <View
+            android:id="@+id/vRating"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSelect" />
+
+        <TextView
+            android:id="@+id/tvLikeReason"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/like_reason_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tvProductRatingInfo"
+            app:layout_constraintTop_toBottomOf="@+id/vRating" />
+
+        <TextView
+            android:id="@+id/likeReasonInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/like_reason_info_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/tvLikeReason"
+            app:layout_constraintTop_toBottomOf="@+id/tvLikeReason" />
+
+        <Button
+            android:id="@+id/btnLikeTag"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:background="@drawable/shape_stroke_black_radius"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/tag_str"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/likeReasonInfo" />
+
+        <View
+            android:id="@+id/vLikeReason"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnLikeTag" />
+
+        <TextView
+            android:id="@+id/tvImageAttach"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/image_attach_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/likeReasonInfo"
+            app:layout_constraintTop_toBottomOf="@+id/vLikeReason" />
+
+        <ImageView
+            android:id="@+id/ivAttachedImage"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_marginTop="14dp"
+            android:background="@color/colorEdge"
+            app:layout_constraintStart_toStartOf="@+id/tvImageAttach"
+            app:layout_constraintTop_toBottomOf="@+id/tvImageAttach" />
+
+        <Button
+            android:id="@+id/btnImageAttach"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="105dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="7dp"
+            android:layout_marginLeft="7dp"
+            android:background="@drawable/shape_stroke_black"
+            android:fontFamily="@font/noto_sans_cjkkr_bold"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:text="@string/image_attach_choice_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivAttachedImage"
+            app:layout_constraintStart_toEndOf="@+id/ivAttachedImage"
+            app:layout_constraintTop_toTopOf="@+id/ivAttachedImage" />
+
+        <View
+            android:id="@+id/vImageAttach"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:background="@color/colorWhite"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivAttachedImage" />
+
+        <TextView
+            android:id="@+id/tvReviewAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/post_up_review_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="@+id/tvImageAttach"
+            app:layout_constraintTop_toBottomOf="@+id/vImageAttach" />
+
+        <EditText
+            android:id="@+id/etReview"
+            android:layout_width="0dp"
+            android:layout_height="157dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/shape_stroke_black"
+            android:ems="10"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:gravity="start|top"
+            android:hint="@string/post_up_review_hint_str"
+            android:inputType="textMultiLine"
+            android:padding="12dp"
+            android:textColor="@color/colorBlack"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tvReviewAdd"
+            app:layout_constraintTop_toBottomOf="@+id/tvReviewAdd" />
+
+        <Button
+            android:id="@+id/btnReviewAdd"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="40dp"
+            android:background="@color/colorBlack"
+            android:fontFamily="@font/noto_sans_medium"
+            android:text="@string/post_up_review_str"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/etReview"
+            app:layout_constraintStart_toStartOf="@+id/etReview"
+            app:layout_constraintTop_toBottomOf="@+id/etReview" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

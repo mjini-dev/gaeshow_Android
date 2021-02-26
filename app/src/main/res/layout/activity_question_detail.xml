@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.service.ServicesViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:context=".view.service.QuestionDetailActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".view.service.QuestionDetailActivity">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbarCustomerService"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarCustomerService"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:minHeight="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageButton
+                        android:id="@+id/btnBackToolbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/ic_left_3"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/colorGrayDark" />
+
+                    <TextView
+                        android:id="@+id/tvTitleToolbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/noto_sans_bold"
+                        android:gravity="center_vertical"
+                        android:text="@string/customer_service_str"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="17sp" />
+
+                    <Button
+                        android:id="@+id/btnCloseToolbar"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/shape_stroke_no"
+                        android:fontFamily="@font/noto_sans_light"
+                        android:gravity="center_vertical"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="@string/close_str"
+                        android:textColor="@color/colorGrayDark"
+                        android:textSize="17sp" />
+
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:gravity="start"
+                android:text="@{vm.postDetails.title}"
+                android:textColor="@color/colorBlack"
+                android:textSize="23sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvDate"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appbarCustomerService"
+                tools:text="@string/title_str" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/noto_sans_cjkkr_regular"
+                android:text="@{vm.postDetails.date}"
+                android:textColor="@color/colorGray"
+                android:textSize="13sp"
+                app:layout_constraintStart_toStartOf="@+id/tvTitle"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                tools:text="@string/created_at_str" />
+
+            <WebView
+                android:id="@+id/tvContent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:fontFamily="@font/noto_sans_light"
+                android:gravity="start"
+                android:text="@string/content_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toTopOf="@+id/tvComment"
+                app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+                app:layout_constraintStart_toStartOf="@+id/tvDate"
+                app:layout_constraintTop_toBottomOf="@+id/tvDate"
+                tools:text="@string/content_str" />
+
+            <TextView
+                android:id="@+id/tvComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/reply_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@+id/rvCommentList"
+                app:layout_constraintStart_toStartOf="@+id/tvContent"
+                app:layout_constraintTop_toBottomOf="@+id/tvContent" />
+
+
+            <TextView
+                android:visibility="@{vm.isExistReply ? View.GONE : View.VISIBLE}"
+                android:id="@+id/tvNoComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/colorBlack"
+                android:fontFamily="@font/noto_sans_cjkkr_light"
+                android:textSize="18sp"
+                android:text="@string/reply_info_str"
+                android:gravity="start"
+                android:paddingStart="20dp"
+                android:paddingEnd="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvComment" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:visibility="@{vm.isExistReply ? View.VISIBLE : View.GONE}"
+                android:id="@+id/rvCommentList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="1dp"
+                android:background="@drawable/shape_stroke_bottom"
+                android:orientation="vertical"
+                android:overScrollMode="never"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvComment"
+                app:setServicesComment="@{vm.comments}"
+                tools:listitem="@layout/item_act_question_view_comments_list" />
+<!--
+            <EditText
+                android:id="@+id/etComment"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/shape_textview"
+                android:hint="@string/comment_hint_str"
+                android:padding="12dp"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/btnAddComment"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/rvCommentList" />
+
+            <Button
+                android:id="@+id/btnAddComment"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="20dp"
+                android:background="@color/colorBlack"
+                android:fontFamily="@font/noto_sans_bold"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:paddingLeft="20dp"
+                android:paddingTop="8dp"
+                android:paddingRight="20dp"
+                android:paddingBottom="8dp"
+                android:text="@string/post_up_str"
+                android:textColor="@color/colorWhite"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etComment"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etComment"
+                app:layout_constraintTop_toTopOf="@+id/etComment" />-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <variable
+            name="post"
+            type="com.devup.android_shopping_mall.data.services.model.ServicesPost" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.devup.android_shopping_mall.view.service.ServicesAdapter.PostItemClickListener" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.service.ServicesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/tvNoticeContent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tvNoticeId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/noto_sans_cjkkr_medium"
+                android:text="@{Integer.toString(post.post_id)}"
+                tools:text="@string/index_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toTopOf="@+id/vQna"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="20dp"
+                android:fontFamily="@font/noto_sans_cjkkr_medium"
+                android:gravity="start"
+                android:text="@{post.title}"
+                tools:text="@string/title_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tvNoticeId"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="17dp"
+                android:layout_marginTop="6dp"
+                android:fontFamily="@font/noto_sans_cjkkr_regular"
+                android:textColor="@color/colorGray"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@+id/tvNoticeId"
+                app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+                android:text="@{post.date}"
+                tools:text="@string/created_at_str" />
+
+            <View
+                android:id="@+id/vQna"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="25dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tvDate" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--        android:visibility="@{vm.isPostAuthor ? View.GONE : View.VISIBLE}"-->
+        <TextView
+            android:id="@+id/tvNoticeContent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_stroke_top_bottom"
+            android:fontFamily="@font/noto_sans_cjkkr_light"
+            android:gravity="start"
+            android:paddingLeft="20dp"
+            android:paddingTop="25dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="25dp"
+            android:text="@{post.contentHTML}"
+            tools:text="@string/content_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/notice" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

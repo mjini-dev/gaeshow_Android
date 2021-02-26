@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.service.ServicesViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/svPost"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:context=".view.service.QuestionWriteActivity">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/appbarCustomerService"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clickable="false"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbarCustomerService"
+                    style="?android:attr/borderlessButtonStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="false"
+                    android:minHeight="0dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <TextView
+                        android:id="@+id/tvTitleToolbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/noto_sans_bold"
+                        android:gravity="center_vertical"
+                        android:text="@string/report_str"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="20sp" />
+
+                    <Button
+                        android:id="@+id/btnCloseToolbar"
+                        style="?android:attr/borderlessButtonStyle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginEnd="16dp"
+                        android:background="@drawable/shape_stroke_no"
+                        android:fontFamily="@font/noto_sans_light"
+                        android:gravity="center_vertical"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:text="@string/close_str"
+                        android:textColor="@color/colorGrayDark"
+                        android:textSize="17sp" />
+
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <ScrollView
+                android:id="@+id/scrollView2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appbarCustomerService">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tvType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/noto_sans_bold"
+                        android:text="@string/report_reason_str"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="16sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <Spinner
+                        android:id="@+id/spType"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:entries="@array/reportReasonSelector"
+                        android:fontFamily="@font/noto_sans_light"
+                        android:padding="10sp"
+                        android:textSize="13sp"
+                        app:layout_constraintStart_toStartOf="@+id/tvType"
+                        app:layout_constraintTop_toBottomOf="@+id/tvType" />
+
+
+                    <HorizontalScrollView
+                        android:id="@+id/editorMenu"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="20dp"
+                        android:background="@android:color/black"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="@+id/spType"
+                        app:layout_constraintTop_toBottomOf="@+id/spType">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <ImageButton
+                                android:id="@+id/action_bold"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@null"
+                                android:contentDescription="@null"
+                                android:src="@drawable/bold" />
+
+                            <ImageButton
+                                android:id="@+id/action_italic"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@null"
+                                android:contentDescription="@null"
+                                android:src="@drawable/italic" />
+
+                            <ImageButton
+                                android:id="@+id/action_strikethrough"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@null"
+                                android:contentDescription="@null"
+                                android:src="@drawable/strikethrough" />
+
+                            <ImageButton
+                                android:id="@+id/action_underline"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@null"
+                                android:contentDescription="@null"
+                                android:src="@drawable/underline" />
+
+                            <ImageButton
+                                android:id="@+id/action_txt_color"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@null"
+                                android:contentDescription="@null"
+                                android:src="@drawable/txt_color" />
+
+                            <ImageButton
+                                android:id="@+id/action_bg_color"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@null"
+                                android:contentDescription="@null"
+                                android:src="@drawable/bg_color" />
+
+                            <ImageButton
+                                android:id="@+id/action_insert_image"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
+                                android:background="@null"
+                                android:contentDescription="@null"
+                                android:src="@drawable/insert_image" />
+
+                        </LinearLayout>
+                    </HorizontalScrollView>
+
+                    <jp.wasabeef.richeditor.RichEditor
+                        android:id="@+id/editorContent"
+                        android:layout_width="0dp"
+                        android:layout_height="200dp"
+                        android:layout_marginBottom="8dp"
+                        android:background="@color/colorWhite"
+                        android:gravity="start"
+                        app:layout_constraintBottom_toTopOf="@+id/vContent"
+                        app:layout_constraintEnd_toEndOf="@+id/editorMenu"
+                        app:layout_constraintStart_toStartOf="@+id/editorMenu"
+                        app:layout_constraintTop_toBottomOf="@+id/editorMenu" />
+
+                    <View
+                        android:id="@+id/vContent"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginBottom="32dp"
+                        android:background="@color/colorWhite"
+                        app:layout_constraintBottom_toTopOf="@+id/btnReportAdd"
+                        app:layout_constraintEnd_toEndOf="@+id/editorContent"
+                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintStart_toStartOf="@+id/editorContent"
+                        app:layout_constraintTop_toBottomOf="@+id/editorContent" />
+
+                    <Button
+                        android:id="@+id/btnReportAdd"
+                        android:layout_width="0dp"
+                        android:layout_height="43dp"
+                        android:layout_marginBottom="50dp"
+                        android:background="@color/colorBlack"
+                        android:fontFamily="@font/noto_sans_medium"
+                        android:minWidth="0dp"
+                        android:minHeight="0dp"
+                        android:paddingLeft="20dp"
+                        android:paddingTop="8dp"
+                        android:paddingRight="20dp"
+                        android:paddingBottom="8dp"
+                        android:text="@string/report_str"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/editorMenu"
+                        app:layout_constraintStart_toStartOf="@+id/editorMenu" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cameraView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <Button
+                android:id="@+id/btnCameraCapture"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="30dp"
+                android:elevation="2dp"
+                android:scaleType="fitCenter"
+                android:text="Take Photo"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
+
+            <androidx.camera.view.PreviewView
+                android:id="@+id/viewFinder"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHeight_default="percent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

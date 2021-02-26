@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_mypage_edit"
+    app:startDestination="@id/mypageEditFragment">
+
+    <fragment
+        android:id="@+id/languageDirectFragment"
+        android:name="com.devup.android_shopping_mall.view.mypage.LanguageDirectFragment"
+        android:label="fragment_language_direct"
+        tools:layout="@layout/fragment_language_direct" >
+        <action
+            android:id="@+id/action_languageDirectFragment_to_languageSearchFragment"
+            app:destination="@id/languageSearchFragment"
+            app:popUpTo="@id/languageDirectFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_languageDirectFragment_to_mypageEditFragment"
+            app:destination="@id/mypageEditFragment"
+            app:popUpTo="@id/languageDirectFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/languageSearchFragment"
+        android:name="com.devup.android_shopping_mall.view.mypage.LanguageSearchFragment"
+        android:label="fragment_language_search"
+        tools:layout="@layout/fragment_language_search" >
+        <action
+            android:id="@+id/action_languageSearchFragment_to_languageDirectFragment"
+            app:destination="@id/languageDirectFragment"
+            app:popUpTo="@id/languageSearchFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_languageSearchFragment_to_mypageEditFragment"
+            app:destination="@id/mypageEditFragment"
+            app:popUpTo="@id/languageSearchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/mypageEditFragment"
+        android:name="com.devup.android_shopping_mall.view.mypage.MypageEditFragment"
+        android:label="fragment_mypage_edit"
+        tools:layout="@layout/fragment_mypage_edit" >
+        <action
+            android:id="@+id/action_mypageEditFragment_to_languageSearchFragment"
+            app:destination="@id/languageSearchFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_mypageEditFragment_to_ideSearchFragment"
+            app:destination="@id/ideSearchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/ideDirectFragment"
+        android:name="com.devup.android_shopping_mall.view.mypage.IdeDirectFragment"
+        android:label="IdeDirectFragment"
+        tools:layout="@layout/fragment_ide_direct" >
+        <action
+            android:id="@+id/action_ideDirectFragment_to_ideSearchFragment"
+            app:destination="@id/ideSearchFragment"
+            app:popUpTo="@id/ideDirectFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_ideDirectFragment_to_mypageEditFragment"
+            app:destination="@id/mypageEditFragment"
+            app:popUpTo="@id/ideDirectFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/ideSearchFragment"
+        android:name="com.devup.android_shopping_mall.view.mypage.IdeSearchFragment"
+        android:label="IdeSearchFragment"
+        tools:layout="@layout/fragment_ide_search">
+        <action
+            android:id="@+id/action_ideSearchFragment_to_ideDirectFragment"
+            app:destination="@id/ideDirectFragment"
+            app:popUpTo="@id/ideSearchFragment"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_ideSearchFragment_to_mypageEditFragment"
+            app:destination="@id/mypageEditFragment"
+            app:popUpTo="@id/ideSearchFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="added"
+            type="String" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.devup.android_shopping_mall.view.mypage.MypageEditLanguageIdeAdapter.OnItemListener" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
+        app:onPostItemClickListener="@{()->clickListener.onItemClick(added)}">
+
+        <TextView
+            android:id="@+id/tvIde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBlack"
+            android:fontFamily="@font/noto_sans_extra_bold"
+            android:gravity="center"
+            android:padding="8dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@{added}"
+            tools:text="@string/ide_str_str" />
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:minWidth="0dp"
+            android:minHeight="0dp"
+            android:padding="0dp"
+            android:src="@drawable/ic_close"
+            app:layout_constraintEnd_toEndOf="@+id/tvIde"
+            app:layout_constraintTop_toTopOf="@+id/tvIde" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

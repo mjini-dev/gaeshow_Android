@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.join.SignupViewModel" />
+    </data>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            tools:context=".view.join.SignupLanguageDirectFragment">
+
+            <TextView
+                android:id="@+id/tvLanguageSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/language_select_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etLanguageSelect"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_textview"
+                android:hint="@string/language_select_hint_str"
+                android:padding="13dp"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@+id/btnRegister"
+                app:layout_constraintStart_toStartOf="@+id/tvLanguageSelect"
+                app:layout_constraintTop_toBottomOf="@+id/tvLanguageSelect" />
+
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorBlack"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/register_str"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etLanguageSelect"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etLanguageSelect"
+                app:layout_constraintTop_toTopOf="@+id/etLanguageSelect" />
+
+            <Button
+                android:id="@+id/btnSearchInput"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_stroke_no"
+                android:fontFamily="@font/noto_sans_bold"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/search_input_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/btnRegister"
+                app:layout_constraintTop_toBottomOf="@+id/etLanguageSelect" />
+
+            <View
+                android:id="@+id/vLanguageSelect"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintStart_toStartOf="@+id/etLanguageSelect"
+                app:layout_constraintTop_toBottomOf="@+id/btnSearchInput" />
+
+            <TextView
+                android:id="@+id/tvSelectedLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@string/selected_language_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/vLanguageSelect"
+                app:layout_constraintTop_toBottomOf="@+id/vLanguageSelect" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDevelopmentLanguages"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:orientation="horizontal"
+                app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvSelectedLanguage"
+                app:layout_constraintTop_toBottomOf="@+id/tvSelectedLanguage"
+                app:setSearch="@{vm.languages}"
+                tools:listitem="@layout/item_signup2_language_search" />
+
+            <View
+                android:id="@+id/vSelectedLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintStart_toStartOf="@+id/rvDevelopmentLanguages"
+                app:layout_constraintTop_toBottomOf="@+id/rvDevelopmentLanguages" />
+
+            <Button
+                android:id="@+id/btnSelectComplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@color/colorBlack"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@string/select_complete_str"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/vSelectedLanguage"
+                app:layout_constraintTop_toBottomOf="@+id/vSelectedLanguage" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

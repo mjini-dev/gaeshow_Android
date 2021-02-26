@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.join.SignupViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            tools:context=".view.join.SignupLanguageSearchFragment">
+
+            <TextView
+                android:id="@+id/tvLanguageSelect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/language_select_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_textview"
+                android:hint="@string/language_select_hint_english_str"
+                android:padding="13dp"
+                android:textSize="16sp"
+                app:iconifiedByDefault="false"
+                app:layout_constraintEnd_toStartOf="@+id/btnSearch"
+                app:layout_constraintStart_toStartOf="@+id/tvLanguageSelect"
+                app:layout_constraintTop_toBottomOf="@+id/tvLanguageSelect" />
+
+            <Button
+                android:id="@+id/btnSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:background="@color/colorBlack"
+                android:fontFamily="@font/noto_sans_bold"
+                android:text="@string/navi_search_str"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/etSearch"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/etSearch"
+                app:layout_constraintTop_toTopOf="@+id/etSearch" />
+
+            <Button
+                android:id="@+id/btnDirectInput"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/shape_stroke_no"
+                android:fontFamily="@font/noto_sans_bold"
+                android:minWidth="0dp"
+                android:minHeight="0dp"
+                android:text="@string/direct_input_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/btnSearch"
+                app:layout_constraintTop_toBottomOf="@+id/etSearch" />
+
+            <TextView
+                android:id="@+id/tvSearchResult"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@string/search_result_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/etSearch"
+                app:layout_constraintTop_toBottomOf="@+id/btnDirectInput" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvSearchResult"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvSearchResult"
+                app:layout_constraintTop_toBottomOf="@+id/tvSearchResult"
+                app:setSearch="@{vm.languagesSearchResult}"
+                tools:listitem="@layout/item_signup2_language_search" />
+
+            <View
+                android:id="@+id/vSearchResult"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintStart_toStartOf="@+id/rvSearchResult"
+                app:layout_constraintTop_toBottomOf="@+id/rvSearchResult" />
+
+            <TextView
+                android:id="@+id/tvSelectedLanguage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@string/selected_language_str"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@+id/vSearchResult"
+                app:layout_constraintTop_toBottomOf="@+id/vSearchResult" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvDevelopmentLanguages"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:orientation="horizontal"
+                app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/tvSelectedLanguage"
+                app:layout_constraintTop_toBottomOf="@+id/tvSelectedLanguage"
+                app:setSearch="@{vm.languages}"
+                tools:listitem="@layout/item_signup2_language_search" />
+
+            <View
+                android:id="@+id/vSelectedLanguage"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/colorWhite"
+                app:layout_constraintStart_toStartOf="@+id/rvDevelopmentLanguages"
+                app:layout_constraintTop_toBottomOf="@+id/rvDevelopmentLanguages" />
+
+            <Button
+                android:id="@+id/btnSelectComplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:background="@color/colorBlack"
+                android:fontFamily="@font/noto_sans_medium"
+                android:text="@string/select_complete_str"
+                android:textColor="@color/colorWhite"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@+id/vSelectedLanguage"
+                app:layout_constraintTop_toBottomOf="@+id/vSelectedLanguage" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>

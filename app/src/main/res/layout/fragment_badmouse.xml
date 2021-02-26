@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.community.viewmodel.BoardViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.community.badmouse.BadMouseFragment">
+
+        <TextView
+            android:id="@+id/tvBadmouse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@string/badmouse_str"
+            android:textColor="@color/colorBlack"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTotalBoard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/total_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="15sp"
+            app:layout_constraintStart_toStartOf="@+id/tvBadmouse"
+            app:layout_constraintTop_toBottomOf="@+id/tvBadmouse" />
+
+        <TextView
+            android:id="@+id/tvPostsCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@{Integer.toString(vm.postCount)}"
+            tools:text="@string/num_symbol_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTotalBoard"
+            app:layout_constraintStart_toEndOf="@+id/tvTotalBoard"
+            app:layout_constraintTop_toTopOf="@+id/tvTotalBoard" />
+
+        <TextView
+            android:id="@+id/tvUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:fontFamily="@font/noto_sans_light"
+            android:text="@string/unit_thing_str"
+            android:textColor="@color/colorGrayDark"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvPostsCount"
+            app:layout_constraintStart_toEndOf="@+id/tvPostsCount"
+            app:layout_constraintTop_toTopOf="@+id/tvPostsCount" />
+
+     <!--   <Spinner
+            android:id="@+id/spCommunity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="6dp"
+            android:entries="@array/communityFilter"
+            android:padding="10sp"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnWrite"
+            app:layout_constraintEnd_toStartOf="@+id/btnWrite"
+            app:layout_constraintTop_toTopOf="@+id/btnWrite" />-->
+
+        <Button
+            android:id="@+id/btnWrite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:background="@color/colorBlack"
+            android:fontFamily="@font/noto_sans_medium"
+            android:minHeight="0dp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="@string/write_str"
+            android:textColor="@color/colorWhite"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUnit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tvUnit" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvBadmouseList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/shape_stroke_top"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTotalBoard"
+            app:setPost="@{vm.posts}"
+            tools:listitem="@layout/item_frag_board_list" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

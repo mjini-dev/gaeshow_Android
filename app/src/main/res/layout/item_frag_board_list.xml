@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="post"
+            type="com.devup.android_shopping_mall.data.community.model.Post" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="clickListener"
+            type="com.devup.android_shopping_mall.view.community.adapter.ListAdapter.PostItemClickListener" />
+
+        <variable
+            name="vm"
+            type="com.devup.android_shopping_mall.view.community.viewmodel.BoardViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:onPostItemClickListener="@{()->clickListener.onPostItemClick(post.post_id)}">
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginRight="20dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:gravity="start"
+            android:maxLines="1"
+            android:text="@{post.title}"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@+id/tvDate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/title_str" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:text="@{post.date}"
+            android:textColor="@color/colorGray"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toTopOf="@+id/rvTag"
+            app:layout_constraintStart_toStartOf="@+id/tvTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+            tools:text="@string/created_at_str" />
+
+        <TextView
+            android:id="@+id/tvView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:text="@string/view_number_str"
+            android:textColor="@color/colorGray"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvDate"
+            app:layout_constraintStart_toEndOf="@+id/tvDate"
+            app:layout_constraintTop_toTopOf="@+id/tvDate" />
+
+        <TextView
+            android:id="@+id/tvViewCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/noto_sans_cjkkr_bold"
+            android:text="@{Integer.toString(post.view_count)}"
+            android:textColor="@color/colorGray"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvView"
+            app:layout_constraintStart_toEndOf="@+id/tvView"
+            app:layout_constraintTop_toTopOf="@+id/tvView"
+            tools:text="@string/view_number_str" />
+
+        <TextView
+            android:id="@+id/tvViewUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:text="@string/unit_time_str"
+            android:textColor="@color/colorGray"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvViewCount"
+            app:layout_constraintStart_toEndOf="@+id/tvViewCount"
+            app:layout_constraintTop_toTopOf="@+id/tvViewCount" />
+
+        <TextView
+            android:id="@+id/tvShare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:text="@string/share_number_str"
+            android:textColor="@color/colorGray"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvViewUnit"
+            app:layout_constraintStart_toEndOf="@+id/tvViewUnit"
+            app:layout_constraintTop_toTopOf="@+id/tvViewUnit" />
+
+
+        <TextView
+            android:id="@+id/tvShareCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:fontFamily="@font/noto_sans_cjkkr_bold"
+            android:text="@{Integer.toString(post.share_count)}"
+            android:textColor="@color/colorGray"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvShare"
+            app:layout_constraintStart_toEndOf="@+id/tvShare"
+            app:layout_constraintTop_toTopOf="@+id/tvShare"
+            tools:text="@string/share_number_str" />
+
+        <TextView
+            android:id="@+id/tvShareUnit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="1dp"
+            android:fontFamily="@font/noto_sans_cjkkr_medium"
+            android:text="@string/unit_time_str"
+            android:textColor="@color/colorGray"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvShareCount"
+            app:layout_constraintStart_toEndOf="@+id/tvShareCount"
+            app:layout_constraintTop_toTopOf="@+id/tvShareCount" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTag"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            app:layoutManager="com.google.android.flexbox.FlexboxLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/ivProfileImage"
+            app:layout_constraintEnd_toEndOf="@+id/tvTitle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/tvDate"
+            app:layout_constraintTop_toBottomOf="@+id/tvDate"
+            app:onPostItemClickListener="@{()->clickListener.onPostItemClick(post.post_id)}"
+            tools:listitem="@layout/item_tag_board" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/ivProfileImage"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/default_img_3x"
+            app:layout_constraintBottom_toTopOf="@+id/vContent"
+            app:layout_constraintStart_toStartOf="@+id/rvTag"
+            app:layout_constraintTop_toBottomOf="@+id/rvTag"
+            app:setProfileImage="@{post.profile_image_url}" />
+
+        <TextView
+            android:id="@+id/tvNickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="9dp"
+            android:fontFamily="@font/noto_sans_cjkkr_regular"
+            android:text="@{post.profile_nickname}"
+            android:textColor="@color/colorGray"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivProfileImage"
+            app:layout_constraintStart_toEndOf="@+id/ivProfileImage"
+            app:layout_constraintTop_toTopOf="@+id/ivProfileImage"
+            tools:text="@string/nickname_str" />
+
+
+        <ImageView
+            android:id="@+id/ivBookmark"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="2dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_bookmark_clicked"
+            app:layout_constraintBottom_toBottomOf="@+id/tvBookmarkCount"
+            app:layout_constraintEnd_toStartOf="@+id/tvBookmarkCount"
+            app:layout_constraintTop_toTopOf="@+id/tvBookmarkCount" />
+
+        <TextView
+            android:id="@+id/tvBookmarkCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:textColor="@color/colorBlack"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvNickname"
+            app:layout_constraintEnd_toStartOf="@+id/ivLiked"
+            app:layout_constraintTop_toTopOf="@+id/tvNickname"
+            android:text="@{Integer.toString(post.bookmark_count)}"
+            tools:text="@string/watch_str" />
+
+
+        <ImageView
+            android:id="@+id/ivLiked"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_marginEnd="2dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_like_clicked_3x"
+            app:layout_constraintBottom_toBottomOf="@+id/tvLikedCount"
+            app:layout_constraintEnd_toStartOf="@+id/tvLikedCount"
+            app:layout_constraintTop_toTopOf="@+id/tvBookmarkCount" />
+
+        <TextView
+            android:id="@+id/tvLikedCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="13dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:text="@{Integer.toString(post.liked)}"
+            android:textColor="@color/colorBlack"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/ivLiked"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/ivLiked" />
+
+
+        <View
+            android:id="@+id/vContent"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/colorGrayLight"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:layout_editor_absoluteX="0dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
